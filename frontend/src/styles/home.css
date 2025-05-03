@@ -1,0 +1,14 @@
+  
+  /* Our Mission Section */
+  .mission-section {
+    background-color: #f5f5f5;
+    margin: 0 auto;
+  }
+ 
+  .mission-section p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  
