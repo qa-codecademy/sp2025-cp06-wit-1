@@ -1,7 +1,9 @@
 @import url('./header.css');
 @import url('./footer.css');
+@import url('./home.css');
 
   body {
+    margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f7f7f7;
@@ -20,7 +22,6 @@
   
   /* Optional utility classes */
   .container {
-    max-width: 960px;
     margin: 0 auto;
   }
   
