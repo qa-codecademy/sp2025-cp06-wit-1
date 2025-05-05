@@ -1,7 +1,54 @@
 footer.footer {
-    background-color: #222;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+  background-color:#203546;
+  color: #fff;
+  padding: 0.5rem;
+  text-align: center;
+  width: 100vw;
+  margin: 1rem 0;
+  }
+
+  .socialIcons{
+    display: flex;
+    justify-content: center;
+  }
+
+  .socialIcons a{
+    text-decoration: none;
+    margin: 10px;
+    padding: 2px;
+    border-radius: 50%;
+  }
+
+  .socialIcons a i{
+    font-size: 1.5em;
+    color:#fff;
+    opacity: 0.9;
+  }
+
+  .socialIcons a:hover i{
+    background-color:#203546;
+    transition: 0.5s;
+    border-radius: 50%;
+    margin: 10px;
+    padding: 3px;
+    font-size: 1.5em;
+    opacity: 0.9;
+  }
+
+  img{
+    width: 60px;
+    height:60px;
+  }
+  .mailSubSection{
+    display: flex;
+    justify-content: center;
   }
   
+  .mailSubSection i{
+    margin-top: 11px;
+    margin-right: 5px;
+  }
+
+  p{
+    font-size: small;
+  }
