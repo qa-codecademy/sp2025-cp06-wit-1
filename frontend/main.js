@@ -2,6 +2,7 @@ import Header from "./src/components/header.js";
 import Footer from "./src/components/footer.js";
 import { handleLocation } from "./router.js";
 
+
 // View switching logic (handled in router.js)
 const app = () => {
     const headerContainer = document.getElementById("header");
