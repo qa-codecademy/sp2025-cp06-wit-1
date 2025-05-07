@@ -6,6 +6,7 @@ const Header = () => {
         </a>
         <ul class="nav-links">
             <li><a href="#/" data-link>Home</a></li>
+            <li><a href="#/about" data-link>About Us</a></li>
             <li class="dropdown">
                 <a href="#" data-link>Programs & Initiatives</a>
                 <ul class="dropdown-menu">
@@ -19,7 +20,7 @@ const Header = () => {
             <li><a href="projects.html" data-link>Projects</a></li>
             <li><a href="gallery.html" data-link>Gallery</a></li>
             <li><a href="contact.html" data-link>Contact</a></li>
-            <li><a href="tel:++38978247111"><i class="bi bi-telephone-fill"></i>   +38978247111</a></li>
+            <li><a href="tel:+38978247111"><i class="bi bi-telephone-fill"></i>+38978247111</a></li>
         </ul>
     </nav>
     `;
