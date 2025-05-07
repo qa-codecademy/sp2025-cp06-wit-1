@@ -1,0 +1,47 @@
+.results {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background-color: #f8f8f8;
+}
+
+.results h2 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.stat {
+    background: #ffffff;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    flex: 1 1 200px;
+    max-width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat h3 {
+    font-size: 2rem;
+    color: #3b49df;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.stat p {
+    font-size: 1rem;
+    color: #444;
+    margin: 0;
+}

@@ -118,3 +118,9 @@ ul {
 .dropdown-menu li:hover {
     background-color: #2a4e66; 
 }
+
+.bi-telephone-fill {
+    margin-right: 10px;
+    color: white;
+    transition: transform 0.2s;
+  }
