@@ -1,4 +1,5 @@
 import OurMission from "../components/our-mission.js";
+import { renderDifferenceSection } from "../components/sectionDifference.js";
 
 const HomeView = () => {
 
@@ -6,6 +7,7 @@ const HomeView = () => {
     <section class="home-view container">
         <h1>This is the home view.</h1>
         ${OurMission()}
+        ${renderDifferenceSection()}
     </section>`;
 }
 
