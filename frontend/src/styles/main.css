@@ -2,6 +2,7 @@
 @import url('./footer.css');
 @import url('./home.css');
 @import url('./navbar.css');
+@import url('./subscribe.css');
 
   body {
     margin: 0;
@@ -27,5 +28,8 @@
   /* Optional utility classes */
   .container {
     width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
   

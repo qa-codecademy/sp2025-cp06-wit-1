@@ -6,11 +6,10 @@ const Footer = () => {
             <a href="https://www.instagram.com/troublegostivar2022/?igsh=N3c0d3E3emtlODI%3D#" target="blank"><i
                     class="bi bi-instagram"></i></a>
         </div>
-        <div>
-            <p>Sretko Krsteski 1232 - Gostivar, Republic of North Macedonia</p>
+        <div class="socialInfo">
+            <a href="https://maps.app.goo.gl/HxovBrJhVMzxbyuG9" target="blank">Сретко Крстески 1230 - Гостивар, Република Северна Македонија</a>
             <div class="mailSubSection">
-                <i class="bi bi-envelope-fill"></i>
-                <p>troublegostivar@gmail.com</p>
+                <a href="mailto:troublegostivar@gmail.com"> <i class="bi bi-envelope-fill"></i>troublegostivar@gmail.com</a>
             </div>
             <img src="./src/assets/when-in-trouble-logo-cmyk.svg">
         </div>
