@@ -19,7 +19,7 @@ const Header = () => {
             <li><a href="projects.html" data-link>Projects</a></li>
             <li><a href="gallery.html" data-link>Gallery</a></li>
             <li><a href="contact.html" data-link>Contact</a></li>
-            <li><a href="tel:++38978247111"><i class="bi bi-telephone-fill"></i>   +38978247111</a></li>
+            <li><a href="tel:+38978247111"><i class="bi bi-telephone-fill"></i>   +38978247111</a></li>
         </ul>
     </nav>
     `;
