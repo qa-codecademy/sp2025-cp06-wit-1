@@ -1,6 +1,5 @@
-const Header = () => {
+const NavBar = () => {
     return `
-        <nav class="navbar">
         <a href="#/" class="logo">
             <img src="./src/assets/when-in-trouble-logo-cmyk.svg" alt="When In Trouble Logo">
         </a>
@@ -21,8 +20,7 @@ const Header = () => {
             <li><a href="contact.html" data-link>Contact</a></li>
             <li><a href="tel:++38978247111"><i class="bi bi-telephone-fill"></i>   +38978247111</a></li>
         </ul>
-    </nav>
     `;
 };
 
-export default Header;
+export default NavBar;
