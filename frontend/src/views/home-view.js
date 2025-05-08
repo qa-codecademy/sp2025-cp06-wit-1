@@ -4,6 +4,7 @@ import SuccessCarousel from "../components/home/header/success-carousel.js";
 import initCarousel from "../components/util.js";
 import { fetchCarouselItems, fetchPeople } from "../services/carousel-service.js";
 import PeopleCarousel from "../components/home/header/people-carousel.js";
+import { Subscribe,initSubscribeForm } from "../components/home/subscribe.js";
 
 const HomeView = async () => {
 
@@ -13,6 +14,7 @@ const HomeView = async () => {
     setTimeout(() => {
       initCarousel('#success-carousel');
       initCarousel('#people-carousel');
+      initSubscribeForm();
     }, 0);
     
     return `
@@ -25,6 +27,7 @@ const HomeView = async () => {
     </div>
     ${OurMission()}
     </header>
+    ${Subscribe()}
     </section>`;
 }
 
