@@ -138,3 +138,46 @@ ul {
     font-weight: 500;
 }
 
+@media (max-width: 600px) {
+    .difference h2 {
+        font-size: 1.8rem;
+    }
+ 
+    .difference-items {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+ 
+    .difference-item {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+ 
+    .difference-item img {
+        border-radius: 8px;
+    }
+ 
+    .read-more-wrapper {
+        text-align: center;
+        padding: 1rem;
+    }
+ 
+    .read-more-btn {
+        float: none;
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+ 
+.hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
