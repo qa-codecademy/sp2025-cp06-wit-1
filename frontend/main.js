@@ -1,12 +1,12 @@
-import Header from "./src/components/header.js";
+import NavBar from "./src/components/nav-bar.js";
 import Footer from "./src/components/footer.js";
 import { handleLocation } from "./router.js";
 
 
 // View switching logic (handled in router.js)
 const app = () => {
-    const headerContainer = document.getElementById("header");
-    headerContainer.innerHTML = Header();
+    const navContainer = document.getElementById("navbar");
+    navContainer.innerHTML = NavBar();
 
     // Initial redirect to "/#/" if no hash is present
     if (!window.location.hash) {

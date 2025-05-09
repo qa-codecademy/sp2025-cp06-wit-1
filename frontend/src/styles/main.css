@@ -2,6 +2,7 @@
 @import url('./footer.css');
 @import url('./home.css');
 @import url('./navbar.css');
+@import url('./subscribe.css');
 @import url('./sectionResults.css');
 
   body {
@@ -19,11 +20,17 @@
   /* Main content area */
   main#main-content {
     flex: 1;
-    padding: 2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start
   }
   
   /* Optional utility classes */
   .container {
-    margin: 0 auto;
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
   

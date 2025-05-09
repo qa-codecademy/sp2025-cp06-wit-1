@@ -8,7 +8,7 @@ export const renderResultsSection = () => {
 
     return `
         <section class="results">
-            <h2>Our Results In Numbers</h2>
+            <h2>Нашите резултати во бројки</h2>
             <div class="stats">
                 ${resultsStats.map(stat => `
                     <div class="stat">
