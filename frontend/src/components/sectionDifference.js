@@ -20,7 +20,7 @@ export const renderDifferenceSection = () => {
 
     return `
         <section class="difference">
-            <h2>How We Make a Difference</h2>
+            <h2>Како менуваме животи</h2>
             <div class="difference-items">
                 ${differenceItems.map(item => `
                     <div class="difference-item">
@@ -30,6 +30,6 @@ export const renderDifferenceSection = () => {
             </div>
         </section>
 <div class="read-more-wrapper">
-    <a href="#projects" class="read-more-btn">Read more...</a>
+    <a href="#projects" class="read-more-btn">Прочитај повеќе...</a>
 </div>`;
 };
