@@ -5,7 +5,7 @@ import initCarousel from "../components/util.js";
 import { fetchCarouselItems, fetchPeople } from "../services/carousel-service.js";
 import PeopleCarousel from "../components/home/header/people-carousel.js";
 import { Subscribe,initSubscribeForm } from "../components/home/subscribe.js";
-
+import { renderResultsSection } from "../components/sectionResults.js"
 const HomeView = async () => {
 
     let itemsSucces = await fetchCarouselItems();
@@ -27,6 +27,7 @@ const HomeView = async () => {
     </div>
     ${OurMission()}
     </header>
+    ${renderResultsSection()}
     ${Subscribe()}
     </section>`;
 }

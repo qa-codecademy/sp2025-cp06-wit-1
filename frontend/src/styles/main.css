@@ -3,6 +3,7 @@
 @import url('./home.css');
 @import url('./navbar.css');
 @import url('./subscribe.css');
+@import url('./sectionResults.css');
 
   body {
     margin: 0;
