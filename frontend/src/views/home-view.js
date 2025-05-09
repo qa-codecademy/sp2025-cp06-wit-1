@@ -6,6 +6,8 @@ import { fetchCarouselItems, fetchPeople } from "../services/carousel-service.js
 import PeopleCarousel from "../components/home/header/people-carousel.js";
 import { Subscribe,initSubscribeForm } from "../components/home/subscribe.js";
 import { renderResultsSection } from "../components/sectionResults.js"
+import { renderDifferenceSection } from "../components/sectionDifference.js"
+
 const HomeView = async () => {
 
     let itemsSucces = await fetchCarouselItems();
@@ -27,7 +29,10 @@ const HomeView = async () => {
     </div>
     ${OurMission()}
     </header>
+    <div>
     ${renderResultsSection()}
+    ${renderDifferenceSection()}
+    </div>
     ${Subscribe()}
     </section>`;
 }

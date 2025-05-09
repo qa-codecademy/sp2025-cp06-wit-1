@@ -119,3 +119,22 @@ ul {
 .dropdown-menu li:hover {
     background-color: #2a4e66; 
 }
+
+.bi-telephone-fill {
+    margin-right: 7px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-text {
+    color: white;
+    margin-left: 10px;
+    line-height: 1.2;
+    font-size: 24px; 
+    font-weight: 500;
+}
+

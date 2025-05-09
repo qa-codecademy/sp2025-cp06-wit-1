@@ -11,7 +11,7 @@ const Footer = () => {
             <div class="mailSubSection">
                 <a href="mailto:troublegostivar@gmail.com"> <i class="bi bi-envelope-fill"></i>troublegostivar@gmail.com</a>
             </div>
-            <img src="./src/assets/when-in-trouble-logo-cmyk.svg">
+            <img src="./src/assets/when-in-trouble-logo-cmyk.svg" alt="When in trouble logo">
         </div>
     `;
 };

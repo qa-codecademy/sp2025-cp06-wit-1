@@ -4,6 +4,7 @@
 @import url('./navbar.css');
 @import url('./subscribe.css');
 @import url('./sectionResults.css');
+@import url('./sectionDifference.css');
 
   body {
     margin: 0;
