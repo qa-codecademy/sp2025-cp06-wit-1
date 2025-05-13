@@ -2,7 +2,7 @@ const Subscribe = () => {
     return`
 <div class="subscription-card">
     <div class="subscription-text">
-        <h2>Придружини се!</h2>
+        <h2>Придружи ни се!</h2>
         <p>Бидете први што ќе дознаат за нашиот импакт, можностите за волонтирање и настаните во заедницата.</p>
     </div>
     <div class="subscription-form" id="subscription-form">
