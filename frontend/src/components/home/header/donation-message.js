@@ -1,8 +1,10 @@
+import languageService from "../../../services/language-service.js";
 const DonationMessage = () => {
-
+    const donation = languageService.getAllTranslations().home.donation;
+    
     return `<div class="donation-message">
-             <p>Заедно до насмевка.</p>
-            <h3>Секоја донација носи нова надеж на едно дете!</h3>
+             <p>${donation.title}</p>
+            <h3>${donation.description}</h3>
             </div>`;
 };
 

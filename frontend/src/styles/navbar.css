@@ -147,6 +147,19 @@ ul {
     cursor: pointer;
 }
 
+.flag-icon {
+  width: 20px;
+  height: 14px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.dropdown-menu li a {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: block;

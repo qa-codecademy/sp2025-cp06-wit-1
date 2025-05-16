@@ -1,5 +1,6 @@
 import HomeView from "./src/views/home-view.js";
 import AboutView from "./src/views/about-view.js";
+import spinner from "./src/utils/spinner.js";
 
 // Define routes and map them to view functions
 const routes = {
@@ -16,11 +17,14 @@ const getHashPath = () => {
 
 // Handle the current location and load the corresponding view
 const handleLocation = async () => {
+    spinner.showSpinner();
     const path = getHashPath();
     const route = routes[path] || routes[404];
 
     const content = typeof route === "function" ? await route() : route;
     document.getElementById("main-content").innerHTML = content;
+    
+    spinner.hideSpinner();
 };
 
 // Function to handle link clicks and update the hash
