@@ -1,9 +1,9 @@
+import languageService from "../../services/language-service.js";
+
 const OurMission = () => {
+    const mission = languageService.getAllTranslations().home.mission;
     return `<section class="mission-section">
-        <p>Преку активизам, едукација, правна поддршка и хуманитарни активности,
-         работиме на подобрување на условите за живот, помош и поддршка на 
-         ранливите категории, како и зајакнување на заедницата за иницирање 
-         позитивни општествени промени.</p>
+        <p>${mission.text}</p>
          </section>`;
          
 };

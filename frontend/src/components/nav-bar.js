@@ -1,41 +1,53 @@
+import languageService from "../services/language-service.js"
+
 const NavBar = () => {
+    const navbar = languageService.getAllTranslations().navbar;
     return `
         <div class="logo">
             <a href="#/">
-                <img src="./src/assets/when-in-trouble-logo-cmyk.svg" alt="Лого на When In Trouble">
+                <img src="./src/assets/when-in-trouble-logo-cmyk.svg" alt="${navbar.home}">
             </a>
             <span class="logo-text">When In Trouble</span>
         </div>
-        <button class="hamburger" aria-label="Toggle navigation">
-            ☰
-        </button>
+
+        <button class="hamburger" aria-label="Toggle navigation">☰</button>
+
         <ul class="nav-links">
-            <li><a href="#/" data-link>Почетна</a></li>
+            <li><a href="#" data-link>${navbar.home}</a></li>
             <li class="dropdown">
-                <a href="#" data-link>Програми и Иницијативи</a>
+                <a href="#" data-link>${navbar.programs}</a>
                 <ul class="dropdown-menu">
-                    <li><a href="education.html" data-link>Образование</a></li>
-                    <li><a href="activism.html" data-link>Активизам</a></li>
-                    <li><a href="legal-support.html" data-link>Правна Поддршка</a></li>
-                    <li><a href="humanitarian.html" data-link>Хуманитарна Помош</a></li>
+                    <li><a href="#education" data-link>${navbar.education}</a></li>
+                    <li><a href="#activism" data-link>${navbar.activism}</a></li>
+                    <li><a href="#legal-support" data-link>${navbar.legal}</a></li>
+                    <li><a href="#humanitarian" data-link>${navbar.humanitarian}</a></li>
                 </ul>
             </li>
-            <li><a href="get-involved.html" data-link>Вклучи се</a></li>
-            <li><a href="projects.html" data-link>Проекти</a></li>
-            <li><a href="gallery.html" data-link>Галерија</a></li>
-            <li><a href="contact.html" data-link>Контакт</a></li>
+            <li><a href="#/get-involved" data-link>${navbar.involve}</a></li>
+            <li><a href="#/projects" data-link>${navbar.projects}</a></li>
+            <li><a href="#/gallery" data-link>${navbar.gallery}</a></li>
+            <li><a href="#/contact" data-link>${navbar.contact}</a></li>
+           <!-- Language Dropdown -->
+        <li class="dropdown lang-dropdown">
+        <a href="#" class="lang-toggle" data-link>🌐 ${navbar.language ? navbar.language : ""}</a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="#" data-lang="mk">
+                <img src="src/assets/flags/Flag_of_North_Macedonia.svg" alt="Macedonian Flag" class="flag-icon"> Македонски
+                </a>
+            </li>
+            <li>
+                <a href="#" data-lang="alb">
+                <img src="src/assets/flags/Flag_of_Albania.svg" alt="Albanian Flag" class="flag-icon"> Shqip
+                </a>
+            </li>
+            
+        </ul>
+        </li>
             <li><a href="tel:+38978247111"><i class="bi bi-telephone-fill"></i> +38978247111</a></li>
         </ul>
     `;
 };
- 
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
- 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-});
- 
+
+
 export default NavBar;
