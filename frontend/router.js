@@ -1,10 +1,12 @@
 import HomeView from "./src/views/home-view.js";
 import AboutView from "./src/views/about-view.js";
 import spinner from "./src/utils/spinner.js";
+import ProjectsView from "./src/views/projects-view.js";
 
 // Define routes and map them to view functions
 const routes = {
     "/": HomeView,
+    "/projects": ProjectsView,
     "/about": AboutView,
     404: () => "<h1>Page Not Found</h1>",
 };
