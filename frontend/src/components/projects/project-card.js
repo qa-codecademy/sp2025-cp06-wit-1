@@ -1,7 +1,7 @@
 import CircularProgress from "../../utils/circular-progress.js";
 import ProjectCardModel from "../../models/project-card-model.js"
 
-const ProjectCard = (projectData, index, isAdmin, t) => {
+const ProjectCard = (projectData, index, isAdmin=true, t) => {
   const project = new ProjectCardModel(projectData);
 
   return `
@@ -20,8 +20,8 @@ const ProjectCard = (projectData, index, isAdmin, t) => {
           ${CircularProgress(project.getProgressPercentage(), `card-${index}`)}
 
           <div class="progress-bar-wrapper">
-            <div class="collected-amount">${project.collected} ден</div>
-            <div class="remaining-amount">${project.getRemainingAmount() > 0 ? `${project.getRemainingAmount()} ден` : ""}</div>
+            <div class="collected-amount">${t.collected}: ${project.collected} ден</div>
+            <div class="remaining-amount">${t.left}: ${project.getRemainingAmount() > 0 ? `${project.getRemainingAmount()} ден` : ""}</div>
           </div>
         </div>
 

@@ -252,6 +252,17 @@ export async function getProjects(lang = "mk") {
   });
 }
 
+export async function deleteProject(id, lang = "mk") {
+  const projects = lang === "mk" ? mkProjects : albProjects;
+  const index = projects.findIndex(p => p.id === id);
+
+  if (index !== -1) {
+    projects.splice(index, 1); // remove 1 element at the found index
+    return { success: true, message: `Project with id ${id} deleted.` };
+  } else {
+    return { success: false, message: `Project with id ${id} not found.` };
+  }
+}
 
 export async function getProjectTypes(lang = "mk") {
   const types = {

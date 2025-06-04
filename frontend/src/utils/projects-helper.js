@@ -1,12 +1,13 @@
 import ProjectList from "../components/projects/project-list.js";
-import { initProjectFilterBar } from "./initProjectFilterBar .js";
+import { initProjectFilterBar } from "./initProjectFilterBar.js";
 
 export function setupProjectHandlers({ allProjects, visibleCount, setVisibleCount, onFilter, onLoadMore, t }) {
-  const lang = localStorage.getItem("language") || "en";
+  const lang = localStorage.getItem("language") || "mk";
 
   initProjectFilterBar(allProjects, onFilter, lang);
 
   const loadMoreBtn = document.getElementById("loadMoreBtn");
+  console.log(loadMoreBtn)
   loadMoreBtn?.addEventListener("click", () => {
     onLoadMore();
     if (visibleCount + 8 >= allProjects.length) {
@@ -19,8 +20,11 @@ export function setupProjectHandlers({ allProjects, visibleCount, setVisibleCoun
     window.location.hash = "#/create-project";
   });
    const projectsContainer = document.getElementById("projectsContainer");
+   
     projectsContainer.addEventListener("click", (e) => {
+      
         const editBtn = e.target.closest(".edit-btn");
+        
         if (editBtn) {
             const projectId = editBtn.getAttribute("data-id");
             if (projectId) {
@@ -33,6 +37,7 @@ export function setupProjectHandlers({ allProjects, visibleCount, setVisibleCoun
             if (projectId && confirm(t.confirmDelete)) {
                 //Implement delete logic here
                 alert(`Delete project with ID: ${projectId}`);
+               // await deleteProject(projectId);
             }
         }
         const learnMoreBtn = e.target.closest(".learn-more-btn");

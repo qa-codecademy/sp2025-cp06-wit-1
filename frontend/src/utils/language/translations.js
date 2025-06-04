@@ -62,7 +62,9 @@ const translations = {
                 learnMore: "Дознај повеќе",
                 editTitle: "Измени проект",
                 deleteTitle: "Избриши проект",
-                projectImageAlt: "Слика од проектот"
+                projectImageAlt: "Слика од проектот",
+                collected: "собрано",
+                left: "преостанато"
             },
             addProject: "Додај Проект",
             confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
@@ -131,7 +133,9 @@ const translations = {
                 learnMore: "Mëso më shumë",
                 editTitle: "Ndrysho projektin",
                 deleteTitle: "Fshi projektin",
-                projectImageAlt: "Foto e projektit"
+                projectImageAlt: "Foto e projektit",
+                collected: "mbledhur",
+                left: "mbetur"
             },
             addProject: "Shto Projekt",
             confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?"

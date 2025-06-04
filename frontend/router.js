@@ -23,9 +23,25 @@ const handleLocation = async () => {
     const path = getHashPath();
     const route = routes[path] || routes[404];
 
-    const content = typeof route === "function" ? await route() : route;
-    document.getElementById("main-content").innerHTML = content;
-    
+    try {
+        const result = typeof route === "function" ? await route() : route;
+        const main = document.getElementById("main-content");
+
+        if (typeof result === "string") {
+            main.innerHTML = result;
+        } else if (result && typeof result.html === "string") {
+            main.innerHTML = result.html;
+            if (typeof result.setup === "function") {
+                setTimeout(() => result.setup(), 0);
+            }
+        } else {
+            main.innerHTML = "<h1>Error loading view</h1>";
+        }
+    } catch (err) {
+        console.error("View error:", err);
+        document.getElementById("main-content").innerHTML = "<h1>Unexpected error</h1>";
+    }
+
     spinner.hideSpinner();
 };
 
@@ -33,11 +49,12 @@ const handleLocation = async () => {
 const route = (event) => {
     event.preventDefault();
     const path = event.target.getAttribute("href");
-    window.location.hash = path; // sets hash, e.g. "#/about"
+    window.location.hash = path;
 };
 
 // Listen for hash changes (browser back/forward or manual hash change)
 window.addEventListener("hashchange", handleLocation);
+window.addEventListener("DOMContentLoaded", handleLocation);
 
 // Export functions
 export { handleLocation, route };
