@@ -14,7 +14,7 @@ const ProjectsView = async () => {
   const types = await getProjectTypes(lang); 
   const visibleProjects = allProjects.slice(0, visibleCount);
 
-  const isAdmin = localStorage.getItem("role") === "admin"; 
+  const isAdmin = true; 
 
   const html = `
     <section class="projects-view-container ${isAdmin ? "admin-view" : "user-view"}">

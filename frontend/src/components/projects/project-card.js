@@ -21,7 +21,7 @@ const ProjectCard = (projectData, index, isAdmin=true, t) => {
 
           <div class="progress-bar-wrapper">
             <div class="collected-amount">${t.collected}: ${project.collected} ден</div>
-            <div class="remaining-amount">${t.left}: ${project.getRemainingAmount() > 0 ? `${project.getRemainingAmount()} ден` : ""}</div>
+            <div class="remaining-amount">${project.getRemainingAmount() > 0 ? `${t.left}:${project.getRemainingAmount()} ден` : ""}</div>
           </div>
         </div>
 
