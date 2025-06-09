@@ -5,6 +5,7 @@
 @import url('./subscribe.css');
 @import url('./sectionResults.css');
 @import url('./sectionDifference.css');
+@import url('./edit-create-project.css');
 
   body {
     margin: 0;
@@ -22,9 +23,9 @@
   main#main-content {
     flex: 1;
     padding: 1rem;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: flex-start
+    align-items: flex-start */
   }
   
   /* Optional utility classes */

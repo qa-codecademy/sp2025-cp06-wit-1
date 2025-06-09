@@ -24,14 +24,24 @@ footer.footer {
     width: 60px;
     height:60px;
   }
+   .locationWrapper{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .locationWrapper i{
+    margin-top: 12px;
+    margin-right: 3px;
+  }
+
   .mailSubSection{
     display: flex;
     justify-content: center;
   }
   
   .mailSubSection i{
-    margin-top: 11px;
-    margin-right: 5px;
+    margin-top: 12px;
+    margin-right: 6px;
   }
 
  footer a {
