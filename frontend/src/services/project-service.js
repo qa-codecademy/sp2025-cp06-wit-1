@@ -28,198 +28,76 @@ export async function getProjectTypes(lang = "mk") {
   });
 }
 
+const STORAGE_KEY = 'mockProjects';
 class ProjectService {
-  STORAGE_KEY = "mockProjects";
-
-  // Initial hardcoded projects
-  initialProjects = [
-    {
-      id: 1,
-      alb: {
-        title: "Ruaj Pyllin",
-        description: "Ndihmo mbrojtjen e pyllit të Amazonës.",
-        image: "https://picsum.photos/id/1018/300/200",
-        transaction: "tx123",
-        donation: 100,
-        date: "2025-05-01",
-        typeId: 1,
-      },
-      mk: {
-        title: "Спаси ја шумата",
-        description: "Помогни во заштитата на Амазонската шума.",
-        image: "https://picsum.photos/id/1018/300/200",
-        transaction: "tx123",
-        donation: 100,
-        date: "2025-05-01",
-        typeId: 1,
-      },
-    },
-    {
-      id: 2,
-      alb: {
-        title: "Iniciativa për Oqeanet e Pastra",
-        description: "Reduktim i ndotjes plastike në oqean.",
-        image: "https://picsum.photos/id/1025/300/200",
-        transaction: "tx124",
-        donation: 250,
-        date: "2025-04-15",
-        typeId: 2,
-      },
-      mk: {
-        title: "Иницијатива за чисти океани",
-        description: "Намалување на пластичното загадување во океанот.",
-        image: "https://picsum.photos/id/1025/300/200",
-        transaction: "tx124",
-        donation: 250,
-        date: "2025-04-15",
-        typeId: 2,
-      },
-    },
-    {
-      id: 3,
-      alb: {
-        title: "Mbështetje për Strehë për Kafshë",
-        description: "Sigurimi i ushqimit dhe strehës për kafshët endacake.",
-        image: "https://picsum.photos/id/1027/300/200",
-        transaction: "tx125",
-        donation: 75,
-        date: "2025-06-10",
-        typeId: 3,
-      },
-      mk: {
-        title: "Поддршка за засолниште за животни",
-        description: "Обезбедување храна и засолниште за скитнички животни.",
-        image: "https://picsum.photos/id/1027/300/200",
-        transaction: "tx125",
-        donation: 75,
-        date: "2025-06-10",
-        typeId: 3,
-      },
-    },
-    {
-      id: 4,
-      alb: {
-        title: "Qasje në Ujë të Pastër",
-        description: "Ndërtimi i burimeve të ujit në vendet në zhvillim.",
-        image: "https://picsum.photos/id/1035/300/200",
-        transaction: "tx126",
-        donation: 300,
-        date: "2025-05-20",
-        typeId: 4,
-      },
-      mk: {
-        title: "Пристап до чиста вода",
-        description: "Изградба на бунари во земјите во развој.",
-        image: "https://picsum.photos/id/1035/300/200",
-        transaction: "tx126",
-        donation: 300,
-        date: "2025-05-20",
-        typeId: 4,
-      },
-    },
-    {
-      id: 5,
-      alb: {
-        title: "Fond Edukativ",
-        description: "Bursa për studentë në nevojë.",
-        image: "https://picsum.photos/id/1043/300/200",
-        transaction: "tx127",
-        donation: 500,
-        date: "2025-07-01",
-        typeId: 5,
-      },
-      mk: {
-        title: "Едукативен фонд",
-        description: "Студентски стипендии за загрозени категории.",
-        image: "https://picsum.photos/id/1043/300/200",
-        transaction: "tx127",
-        donation: 500,
-        date: "2025-07-01",
-        typeId: 5,
-      },
-    },
-    {
-      id: 6,
-      alb: {
-        title: "Kopshti Komunitar",
-        description: "Promovim i bujqësisë urbane dhe jetesës së shëndetshme.",
-        image: "https://picsum.photos/id/1052/300/200",
-        transaction: "tx128",
-        donation: 150,
-        date: "2025-04-25",
-        typeId: 6,
-      },
-      mk: {
-        title: "Заедничка градина",
-        description: "Промоција на урбано земјоделство и здрав начин на живеење.",
-        image: "https://picsum.photos/id/1052/300/200",
-        transaction: "tx128",
-        donation: 150,
-        date: "2025-04-25",
-        typeId: 6,
-      },
-    },
-  ];
-
   constructor() {
-    // Populate local storage once if empty
-    if (!localStorage.getItem(this.STORAGE_KEY)) {
-      this.saveProjects(this.initialProjects);
+    // Initialize localStorage if empty
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      this.saveProjects([]);
     }
   }
 
   loadProjects() {
-    const data = localStorage.getItem(this.STORAGE_KEY);
+    const data = localStorage.getItem(STORAGE_KEY);
     return data ? JSON.parse(data) : [];
   }
 
   saveProjects(projects) {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(projects));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
   }
 
-  create(project) {
-    // if (!project.mk || !project.alb || !project.mk.title || !project.alb.title) {
-    //   throw new Error("Invalid project format");
-    // }
+  generateId() {
+    return '' + Math.random().toString(36).substr(2, 9);
+  }
 
+  create(projectData) {
     const projects = this.loadProjects();
-    project.id = Date.now();
-    projects.push(project);
+    const newProject = new Project(
+      this.generateId(),
+      projectData.title,
+      projectData.description,
+      projectData.image,        // single image here
+      projectData.transaction,
+      projectData.donation,
+      projectData.date,
+      projectData.typeId
+    );
+    projects.push(newProject);
     this.saveProjects(projects);
-    return project;
+    return newProject;
   }
 
-  update(id, updatedProject) {
+  update(id, updatedData) {
     const projects = this.loadProjects();
-    const index = projects.findIndex((p) => p.id === Number(id));
-    if (index !== -1) {
-      projects[index] = { ...projects[index], ...updatedProject };
-      this.saveProjects(projects);
-      return projects[index];
-    } else {
-      throw new Error("Project not found");
-    }
+    const index = projects.findIndex((p) => p.id === id);
+    if (index === -1) throw new Error("Project not found");
+
+    // Update project fields (you may want to be more selective here)
+    projects[index] = new Project(
+      id,
+      updatedData.title,
+      updatedData.description,
+      updatedData.image,       // update image as well
+      updatedData.transaction,
+      updatedData.donation,
+      updatedData.date,
+      updatedData.typeId
+    );
+    this.saveProjects(projects);
+    return projects[index];
   }
 
-  delay(ms = 300) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+  getById(id) {
+    const projects = this.loadProjects();
+    return projects.find((p) => p.id === id) || null;
   }
-
-  async getById(id, lang = "mk") {
-    await this.delay();
-    const allProjects = this.loadProjects();
-    const projectData = allProjects.find((p) => p.id == id);
-    if (!projectData) return null;
-    // const localized = projectData[lang] || projectData["mk"];
-    return projectData;
-  }
-
+  
   getAll(lang = "mk") {
     const allProjects = this.loadProjects();
     return allProjects.map((p) => {
       const localized = p[lang] || p["mk"];
       return new Project({ id: p.id, ...localized });
-    });
+    });  
   }
 }
 

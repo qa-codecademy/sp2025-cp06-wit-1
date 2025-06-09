@@ -17,7 +17,7 @@ const EditCreateProjectView = async (params) => {
     const typesOptions = types.map(t =>
         `<option value="${t.id}" ${t.id === project?.typeId ? "selected" : ""}>${t.value}</option>`
     ).join("");
-    
+
     // Inject select placeholder only if creating a new project
     const selectPlaceholder = !params?.id
         ? `<option disabled selected>${editCreate.types}</option>`
@@ -40,9 +40,11 @@ const EditCreateProjectView = async (params) => {
                 </select>
                 <span id="categoryError" class="error"></span>
                 
-                <div class="preview" id="preview"></div>
+                <div class="preview" id="preview">
+                     ${project?.image? `<img src="${project.image}" alt="Preview" class="preview-img">`: ""}
+                </div>
                 <label for="imageInput">${editCreate.image}</label>
-                <input type="file" id="imageInput"  name="imageInput" accept="image/*">
+                <input type="file" id="imageInput"  name="imageInput" value="${project?.image}" accept="image/*">
                 <span id="imageError" class="error"></span>
                 
                 <label for="dateInput">${editCreate.date}</label>
@@ -84,7 +86,6 @@ function bindFormEvents(params) {
     const requiredFields = [
         "titleInput",
         "categoryInput",
-        "imageInput",
         "dateInput",
         "descriptionInput",
         "donationInput",
@@ -92,6 +93,8 @@ function bindFormEvents(params) {
     ];
 
     const isValidTransaction = (value) => /^\d{15}$/.test(value);
+
+    let base64Image = ""; // store image as base64
 
     // Real-time input cleanup
     requiredFields.forEach(id => {
@@ -118,21 +121,21 @@ function bindFormEvents(params) {
 
     // Image preview
     const fileInput = document.getElementById("imageInput");
-    let previousImageUrl = null;
+    const previewDiv = document.getElementById("preview");
 
     if (fileInput) {
-        fileInput.addEventListener("change", () => {
-            const files = fileInput.files;
-            if (files.length > 0) {
-                if (previousImageUrl) {
-                    URL.revokeObjectURL(previousImageUrl);
-                }
-                previousImageUrl = URL.createObjectURL(files[0]);
-                const imageElement = document.getElementById("preview");
-                if (imageElement) {
-                    imageElement.innerHTML = `<img src="${previousImageUrl}" alt="Preview" class="preview-img">`;
-                }
-            }
+        fileInput.addEventListener("change", function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                base64Image = event.target.result;
+
+                // Clear old preview and add new
+                previewDiv.innerHTML = `<img src="${base64Image}" alt="Preview" class="preview-img">`;
+            };
+            reader.readAsDataURL(file);
         });
     }
 
@@ -171,18 +174,16 @@ function bindFormEvents(params) {
         submitBtn.disabled = true;
 
         const formData = new FormData(form);
-        const imageFile = formData.get("imageInput");
 
         const project = {
             title: formData.get("titleInput"),
-            typeId: formData.get("categoryInput"),
-            image: imageFile && imageFile.name ? imageFile.name : "",
+            typeId: Number(formData.get("categoryInput")),
+            image: base64Image, 
             date: formData.get("dateInput"),
             description: formData.get("descriptionInput"),
             donation: parseFloat(formData.get("donationInput")) || 0,
             transaction: formData.get("transactionInput"),
         };
-        console.log(project)
 
         try {
             if (params?.id) {
