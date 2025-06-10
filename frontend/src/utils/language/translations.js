@@ -1,4 +1,3 @@
-
 const translations = {
     mk: {
         navbar: {
@@ -21,14 +20,15 @@ const translations = {
         },
         home: {
             mission: {
+                title: "Нашата мисија",
                 text: "Преку активизам, едукација, правна поддршка и хуманитарни активности, работиме на подобрување на условите за живот, помош и поддршка на ранливите категории, како и зајакнување на заедницата за иницирање позитивни општествени промени."
             },
             donation: {
-                title: "Поддржете нашите напори",
+                title: "Поддржете ги нашите напори",
                 description: "Вашата донација ќе помогне за продолжување на нашите активности."
             },
             results: {
-                resultsTitle: "Нашите резултати во бројки",
+                resultsTitle: "Нашите резултати во бројки"
             },
             difference: {
                 title: "Како менуваме животи",
@@ -60,9 +60,36 @@ const translations = {
             createAlert: "Проектот е креиран",
             savingError:"Грешка при зачувување на проектот",
             troubleAlert:"Нешто тргна наопаку, обидете се повторно подоцна"
+          },
+        projects: {
+            noProjectsFound: "Не се пронајдени проекти што одговараат на вашите критериуми.",
+            filter: {
+                searchPlaceholder: "Пребарај проекти...",
+                sortLabel: "Сортирај по",
+                allTypes: "Сите типови",
+                sortByName: "Сортирај по име",
+                sortByDate: "Сортирај по датум",
+                sortByActive: "Сортирај по активност",
+                clearFilters: "Исчисти филтер",
+                filterLabel: "Филтрирај по тип",
+
+                loadMoreButton: "Прикажи повеќе"
+            },
+            card: {
+                active: "🟢 Активен",
+                inactive: "🔴 Неактивен",
+                learnMore: "Дознај повеќе",
+                editTitle: "Измени проект",
+                deleteTitle: "Избриши проект",
+                projectImageAlt: "Слика од проектот",
+                collected: "собрано",
+                left: "преостанато"
+            },
+            addProject: "Додај Проект",
+            confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
         }
     },
-     alb: {
+    alb: {
         navbar: {
             home: "Kryefaqja",
             programs: "Programet dhe Iniciativat",
@@ -83,6 +110,7 @@ const translations = {
         },
         home: {
             mission: {
+                title: "Misioni ynë",
                 text: "Përmes aktivizmit, edukatës, mbështetjes ligjore dhe aktiviteteve humanitare, punojmë për përmirësimin e kushteve të jetesës, ndihmën dhe mbështetjen e grupeve të cenueshme, si dhe forcimin e komunitetit për të iniciuar ndryshime pozitive në shoqëri."
             },
             donation: {
@@ -90,7 +118,7 @@ const translations = {
                 description: "Dhurimi juaj do të ndihmojë në vazhdimin e aktiviteteve tona."
             },
             results: {
-                resultsTitle: "Rezultatet tona në shifra",
+                resultsTitle: "Rezultatet tona në shifra"
             },
             difference: {
                 title: "Si po ndryshojmë jetë",
@@ -122,9 +150,35 @@ const translations = {
             createAlert: "Projekti është krijuar",
             savingError:"Gabim gjatë ruajtjes së projektit",
             troubleAlert:"Diçka shkoi keq, provo përsëri më vonë"
+        },
+        projects: {
+            noProjectsFound: "Nuk u gjetën projekte që përputhen me kriteret tuaja.",
+            filter: {
+                searchPlaceholder: "Kërko projekte...",
+                sortLabel: "Rendit sipas",
+
+                filterLabel: "Filtro sipas llojit",
+                allTypes: "Të gjitha llojet",
+                sortByName: "Rendit sipas emrit",
+                sortByDate: "Rendit sipas datës",
+                sortByActive: "Rendit sipas aktivitetit",
+                clearFilters: "Pastro filtrin",
+                loadMoreButton: "Trego më shumë"
+            },
+            card: {
+                active: "🟢 Aktiv",
+                inactive: "🔴 Jo aktiv",
+                learnMore: "Mëso më shumë",
+                editTitle: "Ndrysho projektin",
+                deleteTitle: "Fshi projektin",
+                projectImageAlt: "Foto e projektit",
+                collected: "mbledhur",
+                left: "mbetur"
+            },
+            addProject: "Shto Projekt",
+            confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?"
         }
     }
 };
-
 
 export default translations;

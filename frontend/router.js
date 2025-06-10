@@ -2,12 +2,14 @@ import HomeView from "./src/views/home-view.js";
 import AboutView from "./src/views/about-view.js";
 import EditCreateProjectView from "./src/views/edit-create-project-view.js";
 import spinner from "./src/utils/spinner.js";
+import ProjectsView from "./src/views/projects-view.js";
 
 // Define routes with optional dynamic segments
 const routes = {
     "/": HomeView,
+    "/projects": ProjectsView,
     "/about": AboutView,
-    "/add-project":EditCreateProjectView,
+    "/add-project": EditCreateProjectView,
     "/edit-project/:id": EditCreateProjectView,
     404: () => "<h1>Page Not Found</h1>",
 };
@@ -46,12 +48,27 @@ const getHashPath = () => window.location.hash.slice(1) || "/";
 const handleLocation = async () => {
     spinner.showSpinner();
     const path = getHashPath();
- 
     const { view, params } = matchRoute(path);
- 
-    const content = typeof view === "function" ? await view(params|| {}) : view;
-    document.getElementById("main-content").innerHTML = content;
- 
+
+    try {
+        const result = typeof view === "function" ? await view(params || {}) : view;
+        const main = document.getElementById("main-content");
+
+        if (typeof result === "string") {
+            main.innerHTML = result;
+        } else if (result && typeof result.html === "string") {
+            main.innerHTML = result.html;
+            if (typeof result.setup === "function") {
+                setTimeout(() => result.setup(), 0);
+            }
+        } else {
+            main.innerHTML = "<h1>Error loading view</h1>";
+        }
+    } catch (err) {
+        console.error("View error:", err);
+        document.getElementById("main-content").innerHTML = "<h1>Unexpected error</h1>";
+    }
+
     spinner.hideSpinner();
 };
 
@@ -64,5 +81,6 @@ const route = (event) => {
 
 // Listen for hash changes (back/forward navigation)
 window.addEventListener("hashchange", handleLocation);
+window.addEventListener("DOMContentLoaded", handleLocation);
 
 export { handleLocation, route };
