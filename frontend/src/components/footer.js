@@ -10,13 +10,39 @@ const Footer = () => {
                     class="bi bi-instagram"></i></a>
         </div>
         <div class="socialInfo">
-            <a href="https://maps.app.goo.gl/HxovBrJhVMzxbyuG9" target="blank">${footer.address}</a>
+            <div class="locationWrapper">
+               <a href="https://maps.app.goo.gl/HxovBrJhVMzxbyuG9" target="blank"><i class="bi bi-geo-alt-fill"></i>${footer.address}</a>
+            </div>    
             <div class="mailSubSection">
                 <a href="mailto:troublegostivar@gmail.com"> <i class="bi bi-envelope-fill"></i>troublegostivar@gmail.com</a>
             </div>
+            <a href="#/" id="logoTop">
             <img src="./src/assets/when-in-trouble-logo-cmyk.svg" alt="When in trouble logo">
+            </a>
         </div>
     `;
 };
+
+function handleLogoClickBehavior() {
+  const logoTop = document.getElementById("logoTop");
+
+  const isHomepage = window.location.hash === "#/" || window.location.hash === "";
+
+  // Remove any previous click listeners to avoid duplicates
+  const newLogo = logoTop.cloneNode(true);
+  logoTop.parentNode.replaceChild(newLogo, logoTop);
+
+  if (isHomepage) {
+    newLogo.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  handleLogoClickBehavior();
+  window.addEventListener("hashchange", handleLogoClickBehavior);
+});
 
 export default Footer;

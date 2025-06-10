@@ -42,6 +42,25 @@ const translations = {
                 alert: "Добредојде"
             }
         },
+        editCreate:{
+            title:"Наслов",
+            image:"Слика",
+            category:"Категорија",
+            date:"Датум",
+            description:"Опис",
+            funds:"Потребни средства",
+            transaction:"Трансакциона сметка",
+            edit:"Измени",
+            create:"Креирај",
+            cancel:"Откажи",
+            types:"Одбери категорија",
+            transactionError:"Ве молиме ставете ја вашата трансакциона сметка",
+            requiredFieldError:"Ве молиме пополнете го потребното поле",
+            updateAlert: "Проектот е ажуриран",
+            createAlert: "Проектот е креиран",
+            savingError:"Грешка при зачувување на проектот",
+            troubleAlert:"Нешто тргна наопаку, обидете се повторно подоцна"
+          },
         projects: {
             noProjectsFound: "Не се пронајдени проекти што одговараат на вашите критериуми.",
             filter: {
@@ -112,6 +131,25 @@ const translations = {
                 button: "Abonohu!",
                 alert: "Mirë se vini"
             }
+        },
+        editCreate:{
+            title:"Titulli",
+            image:"Foto",
+            category:"Kategoria",
+            date:"Data",
+            description:"Përshkrimiс",
+            funds:"Fondet e nevojshme",
+            transaction:"Llogaria e transaksionit",
+            edit:"Redakto",
+            create:"Krijo",
+            cancel:"Hiqni dorë",
+            types:"Zgjidhni një kategori",
+            transactionError:"Ju lutemi shkruani numrin e llogarisë suaj të transaksionit",
+            requiredFieldError:"Ju lutemi plotësoni fushën e kërkuar",
+            updateAlert: "Projekti është përditësuar",
+            createAlert: "Projekti është krijuar",
+            savingError:"Gabim gjatë ruajtjes së projektit",
+            troubleAlert:"Diçka shkoi keq, provo përsëri më vonë"
         },
         projects: {
             noProjectsFound: "Nuk u gjetën projekte që përputhen me kriteret tuaja.",

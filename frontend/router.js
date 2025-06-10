@@ -1,30 +1,57 @@
 import HomeView from "./src/views/home-view.js";
 import AboutView from "./src/views/about-view.js";
+import EditCreateProjectView from "./src/views/edit-create-project-view.js";
 import spinner from "./src/utils/spinner.js";
 import ProjectsView from "./src/views/projects-view.js";
 
-// Define routes and map them to view functions
+// Define routes with optional dynamic segments
 const routes = {
     "/": HomeView,
     "/projects": ProjectsView,
     "/about": AboutView,
+    "/add-project": EditCreateProjectView,
+    "/edit-project/:id": EditCreateProjectView,
     404: () => "<h1>Page Not Found</h1>",
 };
 
-// Function to get current hash path (defaults to '/')
-const getHashPath = () => {
-    const hash = window.location.hash.slice(1); // removes the '#'
-    return hash || "/";
+// Match a path to a route pattern and extract params if any
+const matchRoute = (path) => {
+    const pathSegments = path.split("/").filter(Boolean);
+
+    for (const route in routes) {
+        const routeSegments = route.split("/").filter(Boolean);
+        if (routeSegments.length !== pathSegments.length) continue;
+
+        const params = {};
+        let match = true;
+
+        for (let i = 0; i < routeSegments.length; i++) {
+            if (routeSegments[i].startsWith(":")) {
+                const paramName = routeSegments[i].slice(1);
+                params[paramName] = pathSegments[i];
+            } else if (routeSegments[i] !== pathSegments[i]) {
+                match = false;
+                break;
+            }
+        }
+
+        if (match) return { view: routes[route], params };
+    }
+
+    return { view: routes[404], params: {} };
 };
 
-// Handle the current location and load the corresponding view
+// Get current path from hash (default to '/')
+const getHashPath = () => window.location.hash.slice(1) || "/";
+
+// Load the view for the current location
 const handleLocation = async () => {
     spinner.showSpinner();
     const path = getHashPath();
-    const route = routes[path] || routes[404];
+    const { view, params } = matchRoute(path);
 
     try {
-        const result = typeof route === "function" ? await route() : route;
+        const result = typeof view === "function" ? await view(params || {}) : view;
         const main = document.getElementById("main-content");
 
         if (typeof result === "string") {
@@ -45,16 +72,15 @@ const handleLocation = async () => {
     spinner.hideSpinner();
 };
 
-// Function to handle link clicks and update the hash
+// Handle internal link clicks and update the hash
 const route = (event) => {
     event.preventDefault();
     const path = event.target.getAttribute("href");
     window.location.hash = path;
 };
 
-// Listen for hash changes (browser back/forward or manual hash change)
+// Listen for hash changes (back/forward navigation)
 window.addEventListener("hashchange", handleLocation);
 window.addEventListener("DOMContentLoaded", handleLocation);
 
-// Export functions
 export { handleLocation, route };

@@ -6,6 +6,7 @@
 @import url("./sectionResults.css");
 @import url("./sectionDifference.css");
 @import url("./projects.css");
+@import url('./edit-create-project.css');
 
 body {
   margin: 0;
