@@ -7,6 +7,7 @@
 @import url("./sectionDifference.css");
 @import url("./projects.css");
 @import url('./edit-create-project.css');
+@import url("./help.css");
 
 body {
   margin: 0;
@@ -22,7 +23,7 @@ body {
 /* Main content area */
 main#main-content {
   flex: 1;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 
 /* Optional utility classes */

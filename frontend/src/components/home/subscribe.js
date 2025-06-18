@@ -1,4 +1,5 @@
 import languageService from "../../services/language-service.js";
+import Modal from "../../utils/modal.js";
 
 const Subscribe = () => {
   const subscribe = languageService.getAllTranslations().home.subscribe;
@@ -27,8 +28,22 @@ const initSubscribeForm = () => {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     const email = document.getElementById("email").value;
-    alert( `${subscribe.alert}, ${email} !`);
-    form.reset();
+    console.log(email)
+    Modal({
+      type: "success",
+      title: subscribe.modalTitle,
+      message: `${subscribe.modalMessage}: ${email}`,
+      buttons: [
+        {
+          text: "OK",
+          class: "cancel-btn",
+          onClick: () => {
+            console.log("User acknowledged.");
+          },
+        },
+      ],
+      onClose: () => form.reset()
+    });
   });
 };
 

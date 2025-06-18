@@ -3,6 +3,7 @@ import AboutView from "./src/views/about-view.js";
 import EditCreateProjectView from "./src/views/edit-create-project-view.js";
 import spinner from "./src/utils/spinner.js";
 import ProjectsView from "./src/views/projects-view.js";
+import HelpView from "./src/views/help-view.js";
 
 // Define routes with optional dynamic segments
 const routes = {
@@ -11,6 +12,7 @@ const routes = {
     "/about": AboutView,
     "/add-project": EditCreateProjectView,
     "/edit-project/:id": EditCreateProjectView,
+    "/get-involved": HelpView,
     404: () => "<h1>Page Not Found</h1>",
 };
 
