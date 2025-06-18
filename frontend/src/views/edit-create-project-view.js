@@ -3,8 +3,10 @@ import { getProjectTypes } from "../services/project-service.js";
 import languageService from "../services/language-service.js";
 import projectService from "../services/project-service.js";
 
+
+let project;
 const EditCreateProjectView = async (params) => {
-    let project;
+    
     const lang = languageService.getLanguage();
     const editCreate = languageService.getAllTranslations().editCreate;
     if (params && params.id) {
@@ -94,8 +96,8 @@ function bindFormEvents(params) {
 
     const isValidTransaction = (value) => /^\d{15}$/.test(value);
 
-    let base64Image = ""; // store image as base64
-
+    let base64Image = project?.image ?? "";
+ 
     // Real-time input cleanup
     requiredFields.forEach(id => {
         const input = document.getElementById(id);

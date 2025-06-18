@@ -3,7 +3,6 @@ import ProjectCardModel from "../../models/project-card-model.js"
 
 const ProjectCard = (projectData, index, isAdmin=true, t) => {
   const project = new ProjectCardModel(projectData);
-
   return `
     <div class="project-card">
       <img src="${project.image}" alt="${t.projectImageAlt}" />
