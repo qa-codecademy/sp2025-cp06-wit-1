@@ -3,11 +3,13 @@ import AboutView from "./src/views/about-view.js";
 import EditCreateProjectView from "./src/views/edit-create-project-view.js";
 import spinner from "./src/utils/spinner.js";
 import ProjectsView from "./src/views/projects-view.js";
+import ProjectDetailsView from "./src/views/project-details-view.js";
 
 // Define routes with optional dynamic segments
 const routes = {
     "/": HomeView,
     "/projects": ProjectsView,
+    "/project/:id": ProjectDetailsView,
     "/about": AboutView,
     "/add-project": EditCreateProjectView,
     "/edit-project/:id": EditCreateProjectView,

@@ -17,7 +17,7 @@ export function setupProjectHandlers({ allProjects, visibleCount, setVisibleCoun
 
     const addProjectBtn = document.getElementById("addProjectBtn");
     addProjectBtn?.addEventListener("click", () => {
-        window.location.hash = "#/create-project";
+        window.location.hash = "#/add-project";
     });
 
     const projectsContainer = document.getElementById("projectsContainer");
