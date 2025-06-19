@@ -5,19 +5,24 @@ class ProjectCardModel {
     this.description = project.description;
     this.image = project.image;
     this.typeId = project.typeId;
-    this.datePosted = new Date(project.datePosted);
-    this.endDate = new Date(project.endDate);
-    this.isActive = project.isActive;
-    this.collected = project.collected;
+    this.datePosted = this.parseDate(project.datePosted, new Date());
+    this.endDate = this.parseDate(project.endDate);
+    this.isActive = project.isActive !== undefined ? project.isActive : true;
+    this.collected = project.collected || 0;
     this.goal = project.goal;
   }
 
+  parseDate(dateInput, fallback = null) {
+    const d = new Date(dateInput);
+    return !isNaN(d.getTime()) ? d : fallback;
+  }
+
   getFormattedDate() {
-    return this.datePosted.toLocaleDateString();
+    return this.datePosted ? this.datePosted.toLocaleDateString() : "–";
   }
 
   getFormattedEndDate() {
-    return this.endDate.toLocaleDateString();
+    return this.endDate ? this.endDate.toLocaleDateString() : "–";
   }
 
   getRemainingAmount() {

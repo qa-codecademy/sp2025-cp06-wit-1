@@ -1,9 +1,22 @@
 import ProjectList from "../components/projects/project-list.js";
-import { getProjects, deleteProjectById } from "../services/projects-service.js";
+import languageService from "../services/language-service.js";
+import {
+    getProjects,
+    deleteProjectById,
+} from "../services/projects-service.js";
 import { initProjectFilterBar } from "./initProjectFilterBar.js";
+import Modal from "./modal.js";
 
-export function setupProjectHandlers({ allProjects, visibleCount, setVisibleCount, onFilter, onLoadMore, t }) {
+export function setupProjectHandlers({
+    allProjects,
+    visibleCount,
+    setVisibleCount,
+    onFilter,
+    onLoadMore,
+    t,
+}) {
     const lang = localStorage.getItem("language") || "mk";
+    const tEditCreate = languageService.getAllTranslations().editCreate;
 
     initProjectFilterBar(allProjects, onFilter, lang);
 
@@ -22,7 +35,6 @@ export function setupProjectHandlers({ allProjects, visibleCount, setVisibleCoun
 
     const projectsContainer = document.getElementById("projectsContainer");
 
-
     if (!projectsContainer.hasListener) {
         projectsContainer.hasListener = true;
         projectsContainer.addEventListener("click", async (e) => {
@@ -39,13 +51,53 @@ export function setupProjectHandlers({ allProjects, visibleCount, setVisibleCoun
             if (deleteBtn) {
                 const projectId = deleteBtn.getAttribute("data-id");
 
-                if (projectId && confirm(t.confirmDelete)) {
-                    await deleteProjectById(projectId);
-                    const updatedProjects = await getProjects(lang);
-                    setVisibleCount(8); // Reset if needed or keep as-is
-                    onFilter(updatedProjects);
-                    allProjects.length = 0;
-                    allProjects.push(...updatedProjects);
+                if (projectId) {
+                    Modal({
+                        type: "warning",
+                        title: "Дали сте сигурни?",
+                        message: "Со ова трајно ќе го избришите проектот.",
+                        buttons: [
+                            {
+                                text: "Откажи",
+                                class: "cancel-btn",
+                                onClick: () => {
+                                    console.log("Deletion cancelled.");
+                                },
+                            },
+                            {
+                                text: "Избриши",
+                                class: "confirm-btn",
+                                onClick: async () => {
+                                    try {
+                                        await deleteProjectById(projectId);
+                                        const currentLang = languageService.getLanguage(); // or localStorage.getItem("language")
+                                        const updatedProjects = await getProjects(currentLang);
+
+                                        setVisibleCount(8);
+                                        onFilter(updatedProjects);
+                                        allProjects.length = 0;
+                                        allProjects.push(...updatedProjects);
+                                        console.log("Project deleted.");
+                                    } catch (error) {
+                                        Modal({
+                                            type: "error",
+                                            title: tEditCreate.savingError,
+                                            message: tEditCreate.troubleAlert,
+                                            buttons: [
+                                                {
+                                                    text: "OK",
+                                                    class: "cancel-btn",
+                                                },
+                                            ],
+                                        });
+                                    }
+                                },
+                            },
+                        ],
+                        onClose: () => {
+                            console.log("Delete confirmation modal closed.");
+                        },
+                    });
                 }
                 return;
             }
@@ -61,7 +113,6 @@ export function setupProjectHandlers({ allProjects, visibleCount, setVisibleCoun
     }
 }
 
-
 export function renderProjects(visibleProjects, fullList, isAdmin = true) {
     const container = document.querySelector(".project-list");
     if (container) {
@@ -70,7 +121,7 @@ export function renderProjects(visibleProjects, fullList, isAdmin = true) {
 
     const loadMoreBtn = document.getElementById("loadMoreBtn");
     if (loadMoreBtn) {
-        loadMoreBtn.style.display = visibleProjects.length >= fullList.length ? "none" : "block";
+        loadMoreBtn.style.display =
+            visibleProjects.length >= fullList.length ? "none" : "block";
     }
-
 }

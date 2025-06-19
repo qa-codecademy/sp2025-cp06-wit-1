@@ -23,7 +23,7 @@ const NavBar = () => {
                     <li><a href="#humanitarian" data-link>${navbar.humanitarian}</a></li>
                 </ul>
             </li>
-            <li><a href="#/get-involved" data-link>${navbar.involve}</a></li>
+                
             <li><a href="#/projects" data-link>${navbar.projects}</a></li>
             <li><a href="#/gallery" data-link>${navbar.gallery}</a></li>
             <li><a href="#/contact" data-link>${navbar.contact}</a></li>

@@ -1,13 +1,15 @@
 const translations = {
     mk: {
         navbar: {
-            home: "Почетна",
-            programs: "Програми и Иницијативи",
+            home: "Дома",
+            programs: "Програми и иницијативи",
             education: "Образование",
             activism: "Активизам",
-            legal: "Правна Поддршка",
-            humanitarian: "Хуманитарна Помош",
+            legal: "Правна поддршка",
+            humanitarian: "Хуманитарна помош",
             involve: "Вклучи се",
+            helpSomeone: "Помогни некому",
+            getHelp: "Побарај помош",
             projects: "Проекти",
             gallery: "Галерија",
             contact: "Контакт",
@@ -35,11 +37,12 @@ const translations = {
                 readMore: "Прочитај повеќе"
             },
             subscribe: {
-                title: "Придружи ни се!",
-                description: "Бидете први што ќе дознаат за нашиот импакт, можностите за волонтирање и настаните во заедницата.",
-                placeholder: "Внесете емаил",
-                button: "Претплати се!",
-                alert: "Добредојде"
+                title: "Претплати се",
+                description: "Остани во тек со најновите вести.",
+                placeholder: "Внесете е-пошта",
+                button: "Претплати се",
+                modalTitle: "Успешно!",
+                modalMessage: "Се претплативте успешно"
             }
         },
         editCreate: {
@@ -56,8 +59,13 @@ const translations = {
             types: "Одбери категорија",
             transactionError: "Ве молиме ставете ја вашата трансакциона сметка",
             requiredFieldError: "Ве молиме пополнете го потребното поле",
-            updateAlert: "Проектот е ажуриран",
-            createAlert: "Проектот е креиран",
+
+            requiredFieldError: "Полето е задолжително",
+            transactionErrorLength: "Трансакцискиот број мора да содржи точно 15 цифри",
+            transactionErrorInvalidChars: "Внесете само нумерички вредности",
+            createAlert: "Проектот е успешно креиран",
+            updateAlert: "Проектот е успешно ажуриран",
+
             savingError: "Грешка при зачувување на проектот",
             troubleAlert: "Нешто тргна наопаку, обидете се повторно подоцна"
         },
@@ -87,6 +95,39 @@ const translations = {
         },
             addProject: "Додај Проект",
             confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
+        },
+
+        help: {
+            offerHelp: {
+                title: "Понуди помош",
+                description: "Придружи се на нашите волонтери или донирај за да направиш разлика.",
+                button: "Испрати помош"
+            },
+            getHelp: {
+                title: "Барај помош",
+                description: "Кажи ни што ти треба и ние ќе те поврземе со поддршка.",
+                button: "Барај поддршка"
+            },
+            form: {
+                name: "Име",
+                phone: "Телефон",
+                email: "Е-пошта",
+                howYouCanHelp: "Како можете да помогнете?",
+                whatYouNeed: "Што ви е потребно?",
+                requiredError: "Ова поле е задолжително.",
+                invalidEmailError: "Внесете важечка е-пошта.",
+                invalidPhoneError: "Внесете важечки телефонски број.",
+                successTitle: "Успешно!",
+                successMessage: "Вашата пријава е успешно пратена.",
+            },
+            overlay: {
+                greetTitle: "Здраво!",
+                greetText: "Сакаш да помогнеш некого во потреба? Придружи ни се!",
+                offerHelpBtn: "Понуди помош",
+                backTitle: "Ти треба помош?",
+                backText: "Тука сме за тебе. Побарај поддршка.",
+                getHelpBtn: "Барај помош"
+            }
         },
             
         projectdetails: {
@@ -121,6 +162,8 @@ const translations = {
             legal: "Mbështetje Ligjore",
             humanitarian: "Ndihma Humanitare",
             involve: "Pjesëmarr",
+            helpSomeone: "Ndihmo Dike",
+            getHelp: "Kërko Ndihmë",
             projects: "Projekte",
             gallery: "Galeria",
             contact: "Kontakti",
@@ -148,11 +191,12 @@ const translations = {
                 readMore: "Lexo më shumë"
             },
             subscribe: {
-                title: "Bashkohuni me ne!",
-                description: "Jini të parët që mësoni për ndikimin tonë, mundësitë për vullnetarizëm dhe ngjarjet në komunitet.",
-                placeholder: "Vendosni email-in tuaj",
-                button: "Abonohu!",
-                alert: "Mirë se vini"
+                title: "Abonohu",
+                description: "Qëndro i informuar me lajmet më të fundit.",
+                placeholder: "Shkruani email-in tuaj",
+                button: "Abonohu",
+                modalTitle: "Sukses!",
+                modalMessage: "Jeni abonuar me sukses"
             }
         },
         editCreate: {
@@ -169,6 +213,9 @@ const translations = {
             types: "Zgjidhni një kategori",
             transactionError: "Ju lutemi shkruani numrin e llogarisë suaj të transaksionit",
             requiredFieldError: "Ju lutemi plotësoni fushën e kërkuar",
+
+            troubleAlert: "Се случи неочекуван проблем",
+
             updateAlert: "Projekti është përditësuar",
             createAlert: "Projekti është krijuar",
             savingError: "Gabim gjatë ruajtjes së projektit",
@@ -201,6 +248,39 @@ const translations = {
             addProject: "Shto Projekt",
             confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?"
         },
+
+        help: {
+            offerHelp: {
+                title: "Ofro Ndihmë",
+                description: "Bashkohu me vullnetarët tanë ose dhuro për të bërë ndryshimin.",
+                button: "Dërgo Ndihmë"
+            },
+            getHelp: {
+                title: "Kërko Ndihmë",
+                description: "Na trego çfarë të duhet dhe ne do të të lidhim me mbështetje.",
+                button: "Kërko Mbështetje"
+            },
+            form: {
+                name: "Emri yt",
+                email: "Emaili yt",
+                howYouCanHelp: "Si mund të ndihmosh?",
+                whatYouNeed: "Çfarë të duhet?",
+                requiredError: "Kjo fushë është e detyrueshme.",
+                invalidEmailError: "Ju lutemi shkruani një email të vlefshëm.",
+                invalidPhoneError: "Ju lutemi shkruani një numër telefoni të vlefshëm.",
+                successTitle: "Sukses!",
+                successMessage: "Forma juaj u dërgua me sukses.",
+            },
+            overlay: {
+                greetTitle: "Përshëndetje!",
+                greetText: "Dëshiron të ndihmosh dikë në nevojë? Bashkohu me misionin tonë!",
+                offerHelpBtn: "Ofroni Ndihmë",
+                backTitle: "Ke nevojë për ndihmë?",
+                backText: "Jemi këtu për ty. Kërko mbështetje.",
+                getHelpBtn: "Kërko Ndihmë"
+            }
+        },
+
         projectdetails: {
             goal: "Qëllimi",
             collected: "Shuma e mbledhur",
@@ -227,6 +307,7 @@ const translations = {
 }
 
         
+
     }
 };
 
