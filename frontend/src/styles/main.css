@@ -8,6 +8,7 @@
 @import url("./projects.css");
 @import url('./edit-create-project.css');
 @import url("./help.css");
+@import url('./project-detail-view.css');
 
 body {
   margin: 0;

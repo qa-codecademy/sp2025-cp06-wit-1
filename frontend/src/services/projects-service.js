@@ -354,8 +354,16 @@ seedInitialProjects();
 export async function getProjects(lang) {
   const key = lang === "mk" ? "projects_mk" : "projects_alb";
   const projectsJSON = localStorage.getItem(key);
-  return projectsJSON ? JSON.parse(projectsJSON) : [];
+  const addedProjectsJSON = localStorage.getItem("mockProjects");
+
+  const combinedProjects = [
+    ...(projectsJSON ? JSON.parse(projectsJSON) : []),
+    ...(addedProjectsJSON ? JSON.parse(addedProjectsJSON) : [])
+  ];
+
+  return combinedProjects;
 }
+
 
 export async function deleteProjectById(id) {
   const storageKeys = ["projects_alb", "projects_mk"];

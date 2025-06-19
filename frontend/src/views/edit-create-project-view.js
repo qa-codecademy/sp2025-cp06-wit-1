@@ -5,9 +5,10 @@ import projectService from "../services/project-service.js";
 import { validateFormInputs } from "../utils/validation-helper.js";
 import Modal from "../utils/modal.js";
 
- let project;
-const EditCreateProjectView = async (params) => {
 
+let project;
+const EditCreateProjectView = async (params) => {
+    
     const lang = languageService.getLanguage();
     const editCreate = languageService.getAllTranslations().editCreate;
     if (params && params.id) {
@@ -110,10 +111,13 @@ function bindFormEvents(params) {
         "transactionInput",
     ];
 
-    let base64Image = project?.image;
 
-    // General real-time validation for required fields
-    requiredFields.forEach((id) => {
+    const isValidTransaction = (value) => /^\d{15}$/.test(value);
+
+    let base64Image = project?.image ?? "";
+ 
+    // Real-time input cleanup
+    requiredFields.forEach(id => {
         const input = document.getElementById(id);
         const error = document.getElementById(id.replace("Input", "Error"));
 

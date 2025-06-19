@@ -59,11 +59,13 @@ const translations = {
             types: "Одбери категорија",
             transactionError: "Ве молиме ставете ја вашата трансакциона сметка",
             requiredFieldError: "Ве молиме пополнете го потребното поле",
+
             requiredFieldError: "Полето е задолжително",
             transactionErrorLength: "Трансакцискиот број мора да содржи точно 15 цифри",
             transactionErrorInvalidChars: "Внесете само нумерички вредности",
             createAlert: "Проектот е успешно креиран",
             updateAlert: "Проектот е успешно ажуриран",
+
             savingError: "Грешка при зачувување на проектот",
             troubleAlert: "Нешто тргна наопаку, обидете се повторно подоцна"
         },
@@ -82,18 +84,19 @@ const translations = {
                 loadMoreButton: "Прикажи повеќе"
             },
             card: {
-                active: "🟢 Активен",
-                inactive: "🔴 Неактивен",
-                learnMore: "Дознај повеќе",
-                editTitle: "Измени проект",
-                deleteTitle: "Избриши проект",
-                projectImageAlt: "Слика од проектот",
-                collected: "собрано",
-                left: "преостанато"
-            },
+            active: "🟢 Активен",
+            inactive: "🔴 Неактивен",
+            learnMore: "Дознај повеќе",
+            editTitle: "Измени проект",
+            deleteTitle: "Избриши проект",
+            projectImageAlt: "Слика од проектот",
+            collected: "собрано",
+            left: "преостанато"
+        },
             addProject: "Додај Проект",
             confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
         },
+
         help: {
             offerHelp: {
                 title: "Понуди помош",
@@ -125,8 +128,30 @@ const translations = {
                 backText: "Тука сме за тебе. Побарај поддршка.",
                 getHelpBtn: "Барај помош"
             }
-        }
-
+        },
+            
+        projectdetails: {
+            goal: "Цел",
+            collected: "Собрани средства",
+            remaining: "Преостануваат",
+            datePosted: "Објавено",
+            endDate: "Завршува",
+            type: "Тип",
+            back: "Назад",
+            notFound: "Не е пронајден",
+            uknownProject: "Непознат Проект",
+            active: "🟢 Активен",
+            inactive: "🔴 Неактивен",
+            state: "Статус:",
+            donate: "Донирај",
+            enterDonationDetails: "Внеси податоци за донација",
+            cardHolder: "Носител на картичка:",
+            cardHolderName: "Име и Презиме",
+            cardNumber: "Број на картичката",
+            amount: "Износ за донација (МКД)",
+            confirmDonation: "Потврди ја донацијата"
+        },
+        
     },
     alb: {
         navbar: {
@@ -190,6 +215,7 @@ const translations = {
             requiredFieldError: "Ju lutemi plotësoni fushën e kërkuar",
 
             troubleAlert: "Се случи неочекуван проблем",
+
             updateAlert: "Projekti është përditësuar",
             createAlert: "Projekti është krijuar",
             savingError: "Gabim gjatë ruajtjes së projektit",
@@ -222,6 +248,7 @@ const translations = {
             addProject: "Shto Projekt",
             confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?"
         },
+
         help: {
             offerHelp: {
                 title: "Ofro Ndihmë",
@@ -252,7 +279,35 @@ const translations = {
                 backText: "Jemi këtu për ty. Kërko mbështetje.",
                 getHelpBtn: "Kërko Ndihmë"
             }
-        }
+        },
+
+        projectdetails: {
+            goal: "Qëllimi",
+            collected: "Shuma e mbledhur",
+            remaining: "Të mbetura",
+            datePosted: "Publikuar më",
+            endDate: "Përfundon më",
+            type: "Lloji",
+            back: "Kthehu",
+            notFound: "Nuk u gjet",
+            uknownProject: "Projekt i panjohur",
+            active: "🟢 Aktiv",
+            inactive: "🔴 Joaktiv",
+            state: "Statusi:",
+            donate: "Dhuro",
+            enterDonationDetails: "Shkruani të dhënat për donacion",
+            cardHolder: "Mbajtësi i kartelës:",
+            cardHolderName: "Emri dhe Mbiemri",
+            cardNumber: "Numri i kartelës",
+            amount: "Shuma për donacion (MKD)",
+            confirmDonation: "Konfirmo donacionin"
+
+
+
+}
+
+        
+
     }
 };
 
