@@ -3,6 +3,7 @@ import ProjectFilterBar from "../components/projects/project-filter-bar.js";
 import { setupProjectHandlers, renderProjects } from "../utils/projects-helper.js";
 import languageService from "../services/language-service.js";
 import { getProjects, getProjectTypes } from "../services/projects-service.js";
+import { initProjectCard } from "../components/projects/project-card.js";
 
 let visibleCount = 8;
 
@@ -47,6 +48,7 @@ const ProjectsView = async () => {
         },
         t,
       }),
+    
   };
 };
 

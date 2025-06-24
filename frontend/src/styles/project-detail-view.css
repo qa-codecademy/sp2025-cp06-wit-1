@@ -52,11 +52,12 @@ a {
   margin-top: var(--gap);
   padding: var(--gap);
   align-items: flex-start;
+  margin-bottom: 1rem;
 }
 
 .progress-bar-info {
 width: 90%;
-justify-content: ;}
+justify-content: center;}
 
 .project-details-left {
   flex: 0 0 50%;
@@ -124,7 +125,7 @@ justify-content: ;}
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
-  margin: 2rem;
+  /* margin: 2rem; */
 }
 
 .donate-btn:hover {
@@ -236,7 +237,7 @@ justify-content: ;}
   text-align: center;
   font-weight: 600;
   border-bottom: 2px solid var(--primary-color);
-  display: inline-block;
+  /* display: inline-block; */
   padding-bottom: 0.5rem;
 }
 
@@ -355,12 +356,13 @@ justify-content: ;}
   display: flex;
   gap: 16px;
   transition: transform 0.3s ease-in-out;
+  height: 700px;
 }
 
-.project-card {
-  flex: 0 0 calc(100% / 5); /* 3 cards at a time */
-  box-sizing: border-box;
-  padding: 0 10px;
+.related-projects .project-card {
+  min-width: 280px;
+  max-width: 400px;
+  flex: 0 0 auto;
 }
 
 .carousel-btn {

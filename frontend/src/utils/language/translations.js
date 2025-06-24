@@ -16,6 +16,14 @@ const translations = {
             phone: "+38978247111",
             language: "Јазик"
         },
+        heroBanner: {
+            title: "When in Trouble. When you care.",
+            description: "Xуманост што допира срца и менува животи.",
+            cta: "Предложи проект",
+            imageAlt: "Две раце држат црвено срце",
+            offerHelp: "Помогни",
+            getHelp: "Побарај помош"
+        },
         footer: {
             address: "Сретко Крстески 1230 - Гостивар, Република Северна Македонија",
             email: "troublegostivar@gmail.com"
@@ -84,17 +92,18 @@ const translations = {
                 loadMoreButton: "Прикажи повеќе"
             },
             card: {
-            active: "🟢 Активен",
-            inactive: "🔴 Неактивен",
-            learnMore: "Дознај повеќе",
-            editTitle: "Измени проект",
-            deleteTitle: "Избриши проект",
-            projectImageAlt: "Слика од проектот",
-            collected: "собрано",
-            left: "преостанато"
-        },
+                active: "🟢 Активен",
+                inactive: "🔴 Неактивен",
+                learnMore: "Дознај повеќе",
+                editTitle: "Измени проект",
+                deleteTitle: "Избриши проект",
+                projectImageAlt: "Слика од проектот",
+                collected: "собрано",
+                left: "преостанато"
+            },
             addProject: "Додај Проект",
-            confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
+            confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?",
+            delete: "Избриши"
         },
 
         help: {
@@ -129,7 +138,7 @@ const translations = {
                 getHelpBtn: "Барај помош"
             }
         },
-            
+
         projectdetails: {
             goal: "Цел",
             collected: "Собрани средства",
@@ -151,7 +160,7 @@ const translations = {
             amount: "Износ за донација (МКД)",
             confirmDonation: "Потврди ја донацијата"
         },
-        
+
     },
     alb: {
         navbar: {
@@ -173,6 +182,14 @@ const translations = {
         footer: {
             address: "Sretko Krsteski 1230 - Gostivar, Republika e Maqedonisë së Veriut",
             email: "troublegostivar@gmail.com"
+        },
+        heroBanner: {
+            title: "When in Trouble. When you care.",
+            description: "Humanitet që prek zemrat dhe ndryshon jetë.",
+            cta: "Propozo projekt",
+            imageAlt: "Dy duar që mbajnë një zemër të kuqe",
+            offerHelp: "Ndihmë",
+            getHelp: "Kërko ndihmë"
         },
         home: {
             mission: {
@@ -246,7 +263,8 @@ const translations = {
                 left: "mbetur"
             },
             addProject: "Shto Projekt",
-            confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?"
+            confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?",
+            delete: "Fshij"
         },
 
         help: {
@@ -301,12 +319,9 @@ const translations = {
             cardNumber: "Numri i kartelës",
             amount: "Shuma për donacion (MKD)",
             confirmDonation: "Konfirmo donacionin"
+        }
 
 
-
-}
-
-        
 
     }
 };

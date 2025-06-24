@@ -82,7 +82,7 @@
 
 /* Clear Filters Button */
 #clear-filters-btn {
-  margin-left: auto;
+  margin-left: 1rem;
   background-color: #dc3545;
   border: none;
   color: white;
@@ -134,7 +134,8 @@
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.3s ease;
-  max-width: 700px;
+  /* max-width: 700px; */
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -146,8 +147,42 @@
   width: 100%;
   height: 260px;
   object-fit: cover;
+  border-radius: 100% 0% 100% 0% / 0% 50% 50% 100%;
   border-bottom: 1px solid #ddd;
   user-select: none;
+}
+.image-wrapper {
+  position: relative;
+  height: 260px;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.active-badge,
+.inactive-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #28a745; /* green */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.inactive-badge {
+  background-color: #ccc; /* gray if inactive */
 }
 
 .project-card-content {
@@ -171,10 +206,12 @@
 
 .project-meta {
   display: flex;
-  justify-content: space-between;
-  margin: 12px 0 16px;
+  justify-content: flex-end;
+  margin: 0 .5rem;
   font-size: 0.9em;
   color: #666;
+  position: relative;
+  bottom: 21px;
 }
 
 .project-meta span {
@@ -184,25 +221,60 @@
 }
 
 .learn-more-btn {
-  padding: 8px 16px;
-  font-size: 1rem;
-  background-color: #019fe2;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #60a5fa
+  ); /* темно до светло сино */
   color: white;
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  align-self: auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
 }
 
 .learn-more-btn:hover:not(:disabled) {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
 }
 
 .learn-more-btn[disabled] {
   background-color: #ccc;
   cursor: not-allowed;
   opacity: 0.6;
+}
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.project-type.floating {
+  position: absolute;
+  bottom: 32px;
+  right: 5px;
+  z-index: 2;
+  /* background-color: #fff; */
+  color: #1d4ed8;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 1px 8px;
+  border-radius: 20px;
+  /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.project-type.floating i {
+  font-size: 1.4rem;
 }
 
 .admin-buttons {
@@ -396,4 +468,92 @@
 #addProjectBtn {
   font-size: 1rem;
   cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .project-card {
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
+
+  .project-card-content {
+    padding: 12px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .project-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 0.85em;
+    margin-top: 0.5rem;
+    bottom: auto;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .learn-more-btn,
+  .donate-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .project-type.floating {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    right: 8px;
+    bottom: 10px;
+  }
+
+  .project-type.floating i {
+    font-size: 1.2rem;
+  }
+
+  .admin-buttons {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-filter-bar input[type="text"],
+  .project-filter-bar select {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .progress-section {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .circular-progress {
+    width: 64px;
+    height: 64px;
+  }
+
+  .project-meta {
+    font-size: 0.8rem;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+  }
 }

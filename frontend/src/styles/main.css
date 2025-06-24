@@ -6,9 +6,10 @@
 @import url("./sectionResults.css");
 @import url("./sectionDifference.css");
 @import url("./projects.css");
-@import url('./edit-create-project.css');
+@import url("./edit-create-project.css");
 @import url("./help.css");
-@import url('./project-detail-view.css');
+@import url("./project-detail-view.css");
+@import url("./banner.css");
 
 body {
   margin: 0;
@@ -35,9 +36,9 @@ main#main-content {
   flex-direction: column;
 }
 
-.admin-view {
+/* .admin-view {
   border: 3px solid #007bff;
   background-color: #e6f0ff;
   padding: 1rem;
   border-radius: 8px;
-}
+} */

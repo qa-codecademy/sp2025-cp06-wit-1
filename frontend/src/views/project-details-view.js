@@ -4,6 +4,8 @@ import languageService from "../services/language-service.js";
 import { getProjectTypes } from "../services/project-service.js";
 import { renderProjectDetails } from "../components/project-detail-view-components/project-details-html.js  ";
 import { setupShareModal } from '../components/project-detail-view-components/shareModal.js';
+import { initUrgentProjects } from "../components/project-detail-view-components/urgent-projects.js";
+import { initProjectCard } from "../components/projects/project-card.js";
 
 
 const ProjectDetailsView = async ({ id }) => {
@@ -16,7 +18,7 @@ const ProjectDetailsView = async ({ id }) => {
   if (!projectData) {
     return {
       html: `<h2>${t.notFound}</h2>`,
-      setup: () => {}
+      setup: () => { }
     };
   }
 
@@ -46,97 +48,60 @@ const ProjectDetailsView = async ({ id }) => {
   return {
     html,
     setup: () => {
-const donateBtn = document.getElementById("donateBtn");
-const modal = document.getElementById("donationFormContainer");
-const submitBtn = document.getElementById("submitDonation");
-const closeModal = document.getElementById("closeModal");
-const overlay = document.querySelector("#donationFormContainer .modal-overlay");
-const infoBtn = document.querySelector(".info-btn");
-const descriptionSection = document.getElementById("projectDescription");
-const copyLinkBtn = document.getElementById("copyLinkShare");
+      initUrgentProjects();
+      initProjectCard(()=>{});
+      const donateBtn = document.getElementById("donateBtn");
+      const modal = document.getElementById("donationFormContainer");
+      const submitBtn = document.getElementById("submitDonation");
+      const closeModal = document.getElementById("closeModal");
+      const overlay = document.querySelector("#donationFormContainer .modal-overlay");
+      const infoBtn = document.querySelector(".info-btn");
+      const descriptionSection = document.getElementById("projectDescription");
+      const copyLinkBtn = document.getElementById("copyLinkShare");
 
 
-copyLinkBtn?.addEventListener("click", (e) => {
-  e.preventDefault();
-  const url = `${window.location.origin}index.html#/product/${id}`;
+      copyLinkBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        const url = `${window.location.origin}index.html#/product/${id}`;
 
-  navigator.clipboard.writeText(url).then(() => {
-    alert("✅ Врската е копирана!");
-  }).catch(() => {
-    alert("⚠️ Неуспешно копирање.");
-  });
-});
-
-
-donateBtn?.addEventListener("click", () => {
-  modal?.classList.remove("hidden");
-});
-
-closeModal?.addEventListener("click", () => {
-  modal?.classList.add("hidden");
-});
-
-submitBtn?.addEventListener("click", () => {
-  alert("✅ Донацијата е успешно симулирана. Ви благодариме!");
-  modal?.classList.add("hidden");
-});
-
-// Затворање со клик надвор
-overlay?.addEventListener("click", (e) => {
-  if (e.target === overlay) {
-    modal?.classList.add("hidden");
-    document.body.classList.remove("modal-open"); // ако имаш блокирано скролање
-  }
-});
-
-infoBtn?.addEventListener("click", () => {
-  descriptionSection?.scrollIntoView({ behavior: "smooth" });
-});
+        navigator.clipboard.writeText(url).then(() => {
+          alert("✅ Врската е копирана!");
+        }).catch(() => {
+          alert("⚠️ Неуспешно копирање.");
+        });
+      });
 
 
-  // Carousel setup
-const carousel = document.getElementById("urgentProjectsCarousel");
-const leftBtn = document.getElementById("carouselLeft");
-const rightBtn = document.getElementById("carouselRight");
+      donateBtn?.addEventListener("click", () => {
+        modal?.classList.remove("hidden");
+      });
 
-const item = carousel.querySelector(".project-card");
-const itemWidth = item.offsetWidth + 20; // 20px padding gap (10px * 2)
-const visibleCount = Math.floor(carousel.parentElement.offsetWidth / itemWidth);
-const totalItems = carousel.children.length;
+      closeModal?.addEventListener("click", () => {
+        modal?.classList.add("hidden");
+      });
 
-let currentIndex = 0;
+      submitBtn?.addEventListener("click", () => {
+        alert("✅ Донацијата е успешно симулирана. Ви благодариме!");
+        modal?.classList.add("hidden");
+      });
 
-const updateCarousel = () => {
-  const maxIndex = totalItems - visibleCount;
-  currentIndex = Math.max(0, Math.min(currentIndex, maxIndex)); // clamp
-  const offset = -(currentIndex * itemWidth);
-  carousel.style.transform = `translateX(${offset}px)`;
+      // Затворање со клик надвор
+      overlay?.addEventListener("click", (e) => {
+        if (e.target === overlay) {
+          modal?.classList.add("hidden");
+          document.body.classList.remove("modal-open"); // ако имаш блокирано скролање
+        }
+      });
 
-  // Disable buttons at edges
-  leftBtn.disabled = currentIndex === 0;
-  rightBtn.disabled = currentIndex >= maxIndex;
-};
+      infoBtn?.addEventListener("click", () => {
+        descriptionSection?.scrollIntoView({ behavior: "smooth" });
+      });
 
-leftBtn.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateCarousel();
-  }
-});
-
-rightBtn.addEventListener("click", () => {
-  if (currentIndex < totalItems - visibleCount) {
-    currentIndex++;
-    updateCarousel();
-  }
-});
-setupShareModal();
-
-window.addEventListener("resize", updateCarousel);
-updateCarousel();
-}
+      
+      setupShareModal();
+    }
   };
-  
+
 };
 
 export default ProjectDetailsView;
