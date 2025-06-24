@@ -1,4 +1,4 @@
-import ProjectCard from "./project-card.js";
+import {ProjectCard} from "./project-card.js";
 import languageService from "../../services/language-service.js";
 
 const ProjectList = (projects = [], isAdmin = true) => {
