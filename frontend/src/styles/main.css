@@ -7,6 +7,7 @@
 @import url("./sectionDifference.css");
 @import url("./projects.css");
 @import url('./edit-create-project.css');
+@import url('./about.css');
 
 body {
   margin: 0;
@@ -17,12 +18,16 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Main content area */
 main#main-content {
   flex: 1;
-  padding: 1rem;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
+  /* padding: 1rem; */
 }
 
 /* Optional utility classes */

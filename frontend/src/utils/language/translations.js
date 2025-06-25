@@ -35,7 +35,7 @@ const translations = {
                 readMore: "Прочитај повеќе"
             },
             subscribe: {
-                title: "Придружи ни се!",
+                title: "Биди во тек!",
                 description: "Бидете први што ќе дознаат за нашиот импакт, можностите за волонтирање и настаните во заедницата.",
                 placeholder: "Внесете емаил",
                 button: "Претплати се!",
@@ -87,6 +87,15 @@ const translations = {
             },
             addProject: "Додај Проект",
             confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
+        },
+        about:{
+            title:"За нас",
+            vision: {
+                title: "Нашата визија",
+                text: "Да создадеме праведно и хумано општество во кое секој граѓанин има еднакви можности, пристап до поддршка и подобри услови за живот, со посебен фокус на заштита на човековите права, социјална правда и солидарност."
+            },
+            address:"Сретко Крстески 1230 - Гостивар, Република Северна Македонија",
+            info:"За повеќе информации:"
         }
     },
     alb: {
@@ -125,7 +134,7 @@ const translations = {
                 readMore: "Lexo më shumë"
             },
             subscribe: {
-                title: "Bashkohuni me ne!",
+                title: "Qëndroni të sintonizuar!",
                 description: "Jini të parët që mësoni për ndikimin tonë, mundësitë për vullnetarizëm dhe ngjarjet në komunitet.",
                 placeholder: "Vendosni email-in tuaj",
                 button: "Abonohu!",
@@ -177,6 +186,15 @@ const translations = {
             },
             addProject: "Shto Projekt",
             confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?"
+        },
+        about:{
+            title:"Për ne",
+            vision: {
+                title: "Vizioni ynë",
+                text: "Të krijojmë një shoqëri e drejtë dhe humane në të cilën çdo qytetar ka mundësi të barabarta, akses në mbështetje dhe kushte më të mira jetese, me fokus të veçantë në mbrojtjen e të drejtave të njeriut, drejtësinë sociale dhe solidaritetin."
+            },
+            address:"Sretko Krsteski 1230 - Gostivar, Republika e Maqedonisë së Veriut",
+            info:"Për më shumë informacion:"
         }
     }
 };
