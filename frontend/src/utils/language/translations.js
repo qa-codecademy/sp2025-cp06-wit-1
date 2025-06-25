@@ -1,177 +1,168 @@
 const translations = {
-    mk: {
-        navbar: {
-            home: "Дома",
-            programs: "Програми и иницијативи",
-            education: "Образование",
-            activism: "Активизам",
-            legal: "Правна поддршка",
-            humanitarian: "Хуманитарна помош",
-            involve: "Вклучи се",
-            helpSomeone: "Помогни некому",
-            getHelp: "Побарај помош",
-            projects: "Проекти",
-            gallery: "Галерија",
-            contact: "Контакт",
-            phone: "+38978247111",
-            language: "Јазик"
-        },
-        heroBanner: {
-            title: "When in Trouble. When you care.",
-            description: "Xуманост што допира срца и менува животи.",
-            cta: "Предложи проект",
-            imageAlt: "Две раце држат црвено срце",
-            offerHelp: "Помогни",
-            getHelp: "Побарај помош"
-        },
-        footer: {
-            address: "Сретко Крстески 1230 - Гостивар, Република Северна Македонија",
-            email: "troublegostivar@gmail.com"
-        },
-        home: {
-            mission: {
-                title: "Нашата мисија",
-                text: "Преку активизам, едукација, правна поддршка и хуманитарни активности, работиме на подобрување на условите за живот, помош и поддршка на ранливите категории, како и зајакнување на заедницата за иницирање позитивни општествени промени."
-            },
-            donation: {
-                title: "Поддржете ги нашите напори",
-                description: "Вашата донација ќе помогне за продолжување на нашите активности."
-            },
-            results: {
-                resultsTitle: "Нашите резултати во бројки"
-            },
-            difference: {
-                title: "Како менуваме животи",
-                readMore: "Прочитај повеќе"
-            },
-            subscribe: {
-                title: "Биди во тек!",
-                description: "Бидете први што ќе дознаат за нашиот импакт, можностите за волонтирање и настаните во заедницата.",
-                placeholder: "Внесете емаил",
-                button: "Претплати се!",
-                alert: "Добредојде"
-            }
-        },
-        editCreate: {
-            title: "Наслов",
-            image: "Слика",
-            category: "Категорија",
-            date: "Датум",
-            description: "Опис",
-            funds: "Потребни средства",
-            transaction: "Трансакциона сметка",
-            edit: "Измени",
-            create: "Креирај",
-            cancel: "Откажи",
-            types: "Одбери категорија",
-            transactionError: "Ве молиме ставете ја вашата трансакциона сметка",
-            requiredFieldError: "Ве молиме пополнете го потребното поле",
-
-            requiredFieldError: "Полето е задолжително",
-            transactionErrorLength: "Трансакцискиот број мора да содржи точно 15 цифри",
-            transactionErrorInvalidChars: "Внесете само нумерички вредности",
-            createAlert: "Проектот е успешно креиран",
-            updateAlert: "Проектот е успешно ажуриран",
-
-            savingError: "Грешка при зачувување на проектот",
-            troubleAlert: "Нешто тргна наопаку, обидете се повторно подоцна"
-        },
-        projects: {
-            noProjectsFound: "Не се пронајдени проекти што одговараат на вашите критериуми.",
-            filter: {
-                searchPlaceholder: "Пребарај проекти...",
-                sortLabel: "Сортирај по",
-                allTypes: "Сите типови",
-                sortByName: "Сортирај по име",
-                sortByDate: "Сортирај по датум",
-                sortByActive: "Сортирај по активност",
-                clearFilters: "Исчисти филтер",
-                filterLabel: "Филтрирај по тип",
-
-                loadMoreButton: "Прикажи повеќе"
-            },
-            card: {
-                active: "🟢 Активен",
-                inactive: "🔴 Неактивен",
-                learnMore: "Дознај повеќе",
-                editTitle: "Измени проект",
-                deleteTitle: "Избриши проект",
-                projectImageAlt: "Слика од проектот",
-                collected: "собрано",
-                left: "преостанато"
-            },
-            addProject: "Додај Проект",
-            confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
-        },
-        about:{
-            title:"За нас",
-            vision: {
-                title: "Нашата визија",
-                text: "Да создадеме праведно и хумано општество во кое секој граѓанин има еднакви можности, пристап до поддршка и подобри услови за живот, со посебен фокус на заштита на човековите права, социјална правда и солидарност."
-            },
-            address:"Сретко Крстески 1230 - Гостивар, Република Северна Македонија",
-            info:"За повеќе информации:"
-        }
-            confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?",
-            delete: "Избриши"
-        },
-
-        help: {
-            offerHelp: {
-                title: "Понуди помош",
-                description: "Придружи се на нашите волонтери или донирај за да направиш разлика.",
-                button: "Испрати помош"
-            },
-            getHelp: {
-                title: "Барај помош",
-                description: "Кажи ни што ти треба и ние ќе те поврземе со поддршка.",
-                button: "Барај поддршка"
-            },
-            form: {
-                name: "Име",
-                phone: "Телефон",
-                email: "Е-пошта",
-                howYouCanHelp: "Како можете да помогнете?",
-                whatYouNeed: "Што ви е потребно?",
-                requiredError: "Ова поле е задолжително.",
-                invalidEmailError: "Внесете важечка е-пошта.",
-                invalidPhoneError: "Внесете важечки телефонски број.",
-                successTitle: "Успешно!",
-                successMessage: "Вашата пријава е успешно пратена.",
-            },
-            overlay: {
-                greetTitle: "Здраво!",
-                greetText: "Сакаш да помогнеш некого во потреба? Придружи ни се!",
-                offerHelpBtn: "Понуди помош",
-                backTitle: "Ти треба помош?",
-                backText: "Тука сме за тебе. Побарај поддршка.",
-                getHelpBtn: "Барај помош"
-            }
-        },
-
-        projectdetails: {
-            goal: "Цел",
-            collected: "Собрани средства",
-            remaining: "Преостануваат",
-            datePosted: "Објавено",
-            endDate: "Завршува",
-            type: "Тип",
-            back: "Назад",
-            notFound: "Не е пронајден",
-            uknownProject: "Непознат Проект",
-            active: "🟢 Активен",
-            inactive: "🔴 Неактивен",
-            state: "Статус:",
-            donate: "Донирај",
-            enterDonationDetails: "Внеси податоци за донација",
-            cardHolder: "Носител на картичка:",
-            cardHolderName: "Име и Презиме",
-            cardNumber: "Број на картичката",
-            amount: "Износ за донација (МКД)",
-            confirmDonation: "Потврди ја донацијата"
-        },
-
+  mk: {
+    navbar: {
+      home: "Дома",
+      programs: "Програми и иницијативи",
+      education: "Образование",
+      activism: "Активизам",
+      legal: "Правна поддршка",
+      humanitarian: "Хуманитарна помош",
+      involve: "Вклучи се",
+      helpSomeone: "Помогни некому",
+      getHelp: "Побарај помош",
+      projects: "Проекти",
+      gallery: "Галерија",
+      contact: "Контакт",
+      phone: "+38978247111",
+      language: "Јазик"
     },
+    heroBanner: {
+      title: "When in Trouble. When you care.",
+      description: "Xуманост што допира срца и менува животи.",
+      cta: "Предложи проект",
+      imageAlt: "Две раце држат црвено срце",
+      offerHelp: "Помогни",
+      getHelp: "Побарај помош"
+    },
+    footer: {
+      address: "Сретко Крстески 1230 - Гостивар, Република Северна Македонија",
+      email: "troublegostivar@gmail.com"
+    },
+    home: {
+      mission: {
+        title: "Нашата мисија",
+        text: "Преку активизам, едукација, правна поддршка и хуманитарни активности, работиме на подобрување на условите за живот, помош и поддршка на ранливите категории, како и зајакнување на заедницата за иницирање позитивни општествени промени."
+      },
+      donation: {
+        title: "Поддржете ги нашите напори",
+        description: "Вашата донација ќе помогне за продолжување на нашите активности."
+      },
+      results: {
+        resultsTitle: "Нашите резултати во бројки"
+      },
+      difference: {
+        title: "Како менуваме животи",
+        readMore: "Прочитај повеќе"
+      },
+      subscribe: {
+        title: "Биди во тек!",
+        description: "Бидете први што ќе дознаат за нашиот импакт, можностите за волонтирање и настаните во заедницата.",
+        placeholder: "Внесете емаил",
+        button: "Претплати се!",
+        alert: "Добредојде"
+      }
+    },
+    editCreate: {
+      title: "Наслов",
+      image: "Слика",
+      category: "Категорија",
+      date: "Датум",
+      description: "Опис",
+      funds: "Потребни средства",
+      transaction: "Трансакциона сметка",
+      edit: "Измени",
+      create: "Креирај",
+      cancel: "Откажи",
+      types: "Одбери категорија",
+      transactionError: "Ве молиме ставете ја вашата трансакциона сметка",
+      requiredFieldError: "Полето е задолжително",
+      transactionErrorLength: "Трансакцискиот број мора да содржи точно 15 цифри",
+      transactionErrorInvalidChars: "Внесете само нумерички вредности",
+      createAlert: "Проектот е успешно креиран",
+      updateAlert: "Проектот е успешно ажуриран",
+      savingError: "Грешка при зачувување на проектот",
+      troubleAlert: "Нешто тргна наопаку, обидете се повторно подоцна"
+    },
+    projects: {
+      noProjectsFound: "Не се пронајдени проекти што одговараат на вашите критериуми.",
+      filter: {
+        searchPlaceholder: "Пребарај проекти...",
+        sortLabel: "Сортирај по",
+        allTypes: "Сите типови",
+        sortByName: "Сортирај по име",
+        sortByDate: "Сортирај по датум",
+        sortByActive: "Сортирај по активност",
+        clearFilters: "Исчисти филтер",
+        filterLabel: "Филтрирај по тип",
+        loadMoreButton: "Прикажи повеќе"
+      },
+      card: {
+        active: "🟢 Активен",
+        inactive: "🔴 Неактивен",
+        learnMore: "Дознај повеќе",
+        editTitle: "Измени проект",
+        deleteTitle: "Избриши проект",
+        projectImageAlt: "Слика од проектот",
+        collected: "собрано",
+        left: "преостанато"
+      },
+      addProject: "Додај Проект",
+      confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
+    },
+    about: {
+      title: "За нас",
+      vision: {
+        title: "Нашата визија",
+        text: "Да создадеме праведно и хумано општество во кое секој граѓанин има еднакви можности, пристап до поддршка и подобри услови за живот, со посебен фокус на заштита на човековите права, социјална правда и солидарност."
+      },
+      address: "Сретко Крстески 1230 - Гостивар, Република Северна Македонија",
+      info: "За повеќе информации:"
+    },
+    help: {
+      offerHelp: {
+        title: "Понуди помош",
+        description: "Придружи се на нашите волонтери или донирај за да направиш разлика.",
+        button: "Испрати помош"
+      },
+      getHelp: {
+        title: "Барај помош",
+        description: "Кажи ни што ти треба и ние ќе те поврземе со поддршка.",
+        button: "Барај поддршка"
+      },
+      form: {
+        name: "Име",
+        phone: "Телефон",
+        email: "Е-пошта",
+        howYouCanHelp: "Како можете да помогнете?",
+        whatYouNeed: "Што ви е потребно?",
+        requiredError: "Ова поле е задолжително.",
+        invalidEmailError: "Внесете важечка е-пошта.",
+        invalidPhoneError: "Внесете важечки телефонски број.",
+        successTitle: "Успешно!",
+        successMessage: "Вашата пријава е успешно пратена."
+      },
+      overlay: {
+        greetTitle: "Здраво!",
+        greetText: "Сакаш да помогнеш некого во потреба? Придружи ни се!",
+        offerHelpBtn: "Понуди помош",
+        backTitle: "Ти треба помош?",
+        backText: "Тука сме за тебе. Побарај поддршка.",
+        getHelpBtn: "Барај помош"
+      }
+    },
+    projectdetails: {
+      goal: "Цел",
+      collected: "Собрани средства",
+      remaining: "Преостануваат",
+      datePosted: "Објавено",
+      endDate: "Завршува",
+      type: "Тип",
+      back: "Назад",
+      notFound: "Не е пронајден",
+      uknownProject: "Непознат Проект",
+      active: "🟢 Активен",
+      inactive: "🔴 Неактивен",
+      state: "Статус:",
+      donate: "Донирај",
+      enterDonationDetails: "Внеси податоци за донација",
+      cardHolder: "Носител на картичка:",
+      cardHolderName: "Име и Презиме",
+      cardNumber: "Број на картичката",
+      amount: "Износ за донација (МКД)",
+      confirmDonation: "Потврди ја донацијата"
+    }
+  },
+
     alb: {
         navbar: {
             home: "Kryefaqja",
@@ -273,7 +264,7 @@ const translations = {
                 left: "mbetur"
             },
             addProject: "Shto Projekt",
-            confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?"
+            confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?",
         },
         about:{
             title:"Për ne",
@@ -282,7 +273,7 @@ const translations = {
                 text: "Të krijojmë një shoqëri e drejtë dhe humane në të cilën çdo qytetar ka mundësi të barabarta, akses në mbështetje dhe kushte më të mira jetese, me fokus të veçantë në mbrojtjen e të drejtave të njeriut, drejtësinë sociale dhe solidaritetin."
             },
             address:"Sretko Krsteski 1230 - Gostivar, Republika e Maqedonisë së Veriut",
-            info:"Për më shumë informacion:"
+            info:"Për më shumë informacion:",
           
             confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?",
             delete: "Fshij"

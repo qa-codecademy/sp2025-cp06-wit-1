@@ -6,15 +6,11 @@
 @import url("./sectionResults.css");
 @import url("./sectionDifference.css");
 @import url("./projects.css");
-<<<<<<< feature/about-us
 @import url('./edit-create-project.css');
 @import url('./about.css');
-=======
-@import url("./edit-create-project.css");
 @import url("./help.css");
 @import url("./project-detail-view.css");
 @import url("./banner.css");
->>>>>>> develop
 
 body {
   margin: 0;
@@ -31,12 +27,6 @@ body {
 /* Main content area */
 main#main-content {
   flex: 1;
-<<<<<<< feature/about-us
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column; */
-=======
->>>>>>> develop
   /* padding: 1rem; */
 }
 
