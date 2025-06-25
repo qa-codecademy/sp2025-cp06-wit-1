@@ -6,8 +6,15 @@
 @import url("./sectionResults.css");
 @import url("./sectionDifference.css");
 @import url("./projects.css");
+<<<<<<< feature/about-us
 @import url('./edit-create-project.css');
 @import url('./about.css');
+=======
+@import url("./edit-create-project.css");
+@import url("./help.css");
+@import url("./project-detail-view.css");
+@import url("./banner.css");
+>>>>>>> develop
 
 body {
   margin: 0;
@@ -24,9 +31,12 @@ body {
 /* Main content area */
 main#main-content {
   flex: 1;
+<<<<<<< feature/about-us
   /* display: flex;
   justify-content: center;
   flex-direction: column; */
+=======
+>>>>>>> develop
   /* padding: 1rem; */
 }
 
@@ -38,9 +48,9 @@ main#main-content {
   flex-direction: column;
 }
 
-.admin-view {
+/* .admin-view {
   border: 3px solid #007bff;
   background-color: #e6f0ff;
   padding: 1rem;
   border-radius: 8px;
-}
+} */

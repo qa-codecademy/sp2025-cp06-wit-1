@@ -1,9 +1,8 @@
-  
-  /* Our Mission Section */
+/* Our Mission Section */
 .mission-section {
   padding: 3rem 1rem;
   background: transparent;
-  max-width: 100vw;
+  max-width: 90%;
   overflow-x: hidden;
 }
 
@@ -55,9 +54,9 @@
 @media (max-width: 768px) {
   .mission-container {
     flex-direction: column;
-    gap:0;
+    gap: 0;
   }
-  .mission-section{
+  .mission-section {
     padding: 0;
   }
 
@@ -75,4 +74,28 @@
     max-width: 300px;
     filter: none;
   }
+}
+
+.related-projects {
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.carousel-container {
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.home-view.container .related-projects h3 {
+  width: 90% !important;
 }

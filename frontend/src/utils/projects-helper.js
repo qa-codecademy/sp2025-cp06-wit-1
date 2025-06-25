@@ -1,76 +1,102 @@
+import { initProjectCard } from "../components/projects/project-card.js";
 import ProjectList from "../components/projects/project-list.js";
-import { getProjects, deleteProjectById } from "../services/projects-service.js";
 import { initProjectFilterBar } from "./initProjectFilterBar.js";
+import { getProjects, deleteProjectById } from "../services/projects-service.js";
+import Modal from "./modal.js";
+import languageService from "../services/language-service.js";
 
-export function setupProjectHandlers({ allProjects, visibleCount, setVisibleCount, onFilter, onLoadMore, t }) {
-    const lang = localStorage.getItem("language") || "mk";
+let cachedAllProjects = [];
+let cachedSetVisibleCount = () => { };
+let cachedOnFilter = () => { };
+let cachedRenderProjects = () => { };
+const lang = localStorage.getItem("language") || "mk";
+const t = languageService.getAllTranslations().projects;
+const tEditCreate = languageService.getAllTranslations().editCreate;
 
-    initProjectFilterBar(allProjects, onFilter, lang);
+export function setupProjectHandlers({
+  allProjects,
+  visibleCount,
+  setVisibleCount,
+  onFilter,
+  onLoadMore,
 
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
-    loadMoreBtn?.addEventListener("click", () => {
-        onLoadMore();
-        if (visibleCount + 8 >= allProjects.length) {
-            loadMoreBtn.style.display = "none";
-        }
-    });
-
-    const addProjectBtn = document.getElementById("addProjectBtn");
-    addProjectBtn?.addEventListener("click", () => {
-        window.location.hash = "#/create-project";
-    });
-
-    const projectsContainer = document.getElementById("projectsContainer");
+}) {
 
 
-    if (!projectsContainer.hasListener) {
-        projectsContainer.hasListener = true;
-        projectsContainer.addEventListener("click", async (e) => {
-            const editBtn = e.target.closest(".edit-btn");
-            if (editBtn) {
-                const projectId = editBtn.getAttribute("data-id");
-                if (projectId) {
-                    window.location.hash = `#/edit-project/${projectId}`;
-                }
-                return;
-            }
+  cachedAllProjects = allProjects;
+  cachedSetVisibleCount = setVisibleCount;
+  cachedOnFilter = onFilter;
+  cachedRenderProjects = () => {
+    renderProjects(
+      cachedAllProjects.slice(0, visibleCount),
+      cachedAllProjects,
+      true,
+      handleDelete
+    );
+  };
 
-            const deleteBtn = e.target.closest(".delete-btn");
-            if (deleteBtn) {
-                const projectId = deleteBtn.getAttribute("data-id");
+  initProjectFilterBar(allProjects, onFilter, lang);
 
-                if (projectId && confirm(t.confirmDelete)) {
-                    await deleteProjectById(projectId);
-                    const updatedProjects = await getProjects(lang);
-                    setVisibleCount(8); // Reset if needed or keep as-is
-                    onFilter(updatedProjects);
-                    allProjects.length = 0;
-                    allProjects.push(...updatedProjects);
-                }
-                return;
-            }
-
-            const learnMoreBtn = e.target.closest(".learn-more-btn");
-            if (learnMoreBtn) {
-                const projectId = learnMoreBtn.getAttribute("data-id");
-                if (projectId) {
-                    window.location.hash = `#/project/${projectId}`;
-                }
-            }
-        });
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  loadMoreBtn?.addEventListener("click", () => {
+    onLoadMore();
+    if (visibleCount + 8 >= allProjects.length) {
+      loadMoreBtn.style.display = "none";
     }
+  });
+
+  const addProjectBtn = document.getElementById("addProjectBtn");
+  addProjectBtn?.addEventListener("click", () => {
+    window.location.hash = "#/add-project";
+  });
 }
 
+async function deleteAndRefreshProject(projectId) {
 
-export function renderProjects(visibleProjects, fullList, isAdmin = true) {
-    const container = document.querySelector(".project-list");
-    if (container) {
-        container.innerHTML = ProjectList(visibleProjects, isAdmin);
-    }
+  try {
+    await deleteProjectById(projectId);
+    const updated = await getProjects(lang);
+    cachedSetVisibleCount(8);
+    cachedOnFilter(updated);
+    cachedAllProjects.length = 0;
+    cachedAllProjects.push(...updated);
+    cachedRenderProjects();
+  } catch (error) {
+    Modal({
+      type: "error",
+      title: tEditCreate.savingError,
+      message: tEditCreate.troubleAlert,
+      buttons: [{ text: "OK", class: "cancel-btn" }],
+    });
+  }
+}
 
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
-    if (loadMoreBtn) {
-        loadMoreBtn.style.display = visibleProjects.length >= fullList.length ? "none" : "block";
-    }
+function handleDelete(id) {
+  Modal({
+    type: "warning",
+    title: t.confirmDelete,
+    message: "",
+    buttons: [
+      { text: tEditCreate.cancel, class: "cancel-btn", onClick: () => { } },
+      {
+        text: "Избриши",
+        class: "confirm-btn",
+        onClick: () => deleteAndRefreshProject(id),
+      },
+    ],
+  });
+}
 
+export function renderProjects(visibleProjects, fullList, isAdmin = true, onDelete = handleDelete) {
+  const container = document.querySelector(".project-list");
+  if (container) {
+    container.innerHTML = ProjectList(visibleProjects, isAdmin);
+    initProjectCard({ onDelete });
+  }
+
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  if (loadMoreBtn) {
+    loadMoreBtn.style.display =
+      visibleProjects.length >= fullList.length ? "none" : "block";
+  }
 }

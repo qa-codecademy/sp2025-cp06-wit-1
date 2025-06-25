@@ -1,0 +1,633 @@
+:root {
+  --primary-color: #2ab5df;
+  --primary-dark: #19d26c;
+  --bg-card: #grey;
+  --bg-page: #e3f2fd;
+  --text-color: #212121;
+  --border-radius: 12px;
+  --gap: 1.5rem;
+  --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.modal-overlay {
+  position: relative;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Project Details */
+.project-details {
+  display: flex;
+  flex-direction: row;
+  position: c;
+  gap: var(--gap);
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-top: var(--gap);
+  padding: var(--gap);
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.progress-bar-info {
+width: 90%;
+justify-content: center;}
+
+.project-details-left {
+  flex: 0 0 50%;
+  max-width: 100%;
+}
+
+.project-details-right {
+  flex: 1;
+  max-width: 50%;
+}
+
+.project-details-left img {
+  width: 100%;
+  border-radius: 15px;
+  max-width: 900px; /* или колку ти одговара */
+  height: 600px;
+}
+
+.top-buttons {
+  top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.project-details-right h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.project-details-right progress {
+  width: 100%;
+  height: 12px;
+  appearance: none;
+  background-color: #ddd;
+  border-radius: 6px;
+}
+
+.project-details-right progress::-webkit-progress-value {
+  background-color: var(--primary-color);
+  border-radius: 6px;
+}
+
+.down-buttons {
+  margin-left: 110px;
+  margin-top: 200px;
+}
+
+.donate-btn {
+  background: linear-gradient(135deg, #3c7876, #3992aa); /* темно до светло зелено */
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
+  /* margin: 2rem; */
+}
+
+.donate-btn:hover {
+  background: linear-gradient(135deg, #15803d, #22c55e);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 128, 0, 0.4);
+}
+
+.donate-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 8px rgba(0, 128, 0, 0.2);
+}
+
+.info-btn {
+  background: linear-gradient(135deg, #2563eb, #60a5fa); /* темно до светло сино */
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+.info-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
+}
+
+.info-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 8px rgba(30, 64, 175, 0.2);
+}
+
+.info-btn,
+.donate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #6b7280, #9ca3af); /* сиво-неутрална градација */
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 10px rgba(107, 114, 128, 0.2);
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #4b5563, #6b7280);
+  transform: translateY(-1px);
+}
+
+.back-btn:active {
+  transform: scale(0.98);
+}
+
+.share-btn {
+  background: linear-gradient(135deg, #10b981, #34d399); /* зелена тема */
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.share-btn:hover {
+  background: linear-gradient(135deg, #059669, #10b981);
+  transform: translateY(-1px);
+}
+
+.share-btn:active {
+  transform: scale(0.98);
+}
+
+
+/* Related Projects */
+.related-projects {
+  padding: 2rem var(--gap);
+  background-color: #f9f9f9; /* светла позадина за визуелно одвојување */
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-height: fit-content;
+}
+
+.related-projects h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-color);
+  /* display: inline-block; */
+  padding-bottom: 0.5rem;
+}
+
+
+/* Project Description */
+.descriptionfortheproject {
+  text-align: center;
+  margin: var(--gap);
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Модал позадина */
+.modal-overlay {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Содржина на модал */
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Затворање */
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+/* Форма */
+.donation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.donation-form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.donation-form button {
+  background-color: #28a745;
+  color: white;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donation-form button:hover {
+  background-color: #218838;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Анимација */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Скрие го модалот кога е hidden */
+.hidden {
+  display: none !important;
+}
+
+.carousel-container {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-viewport {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  height: 100%;
+  display: flex;
+  gap: 16px;
+  transition: transform 0.3s ease-in-out;
+  height: 700px;
+}
+
+.related-projects .project-card {
+  min-width: 280px;
+  max-width: 400px;
+  flex: 0 0 auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-btn.left {
+  left: 1.8px; /* повлечено кон внатре */
+}
+
+.carousel-btn.right {
+  right: 1.8px;
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-content.share-modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.share-options a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background: #eee;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.share-options a:hover {
+  background: #ccc;
+}
+
+@media (max-width: 1024px) {
+  .project-details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-details-left,
+  .project-details-right {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .project-details-left img {
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+  .progress-bar-info {
+  
+  width: 120ox;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background: #f1f5f9; /* светло сива позадина */
+  border-radius: 12px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+progress {
+  width: 100%;
+  height: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+progress::-webkit-progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--primary-color), #3de197);
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--primary-color), #3de197);
+  border-radius: 10px;
+}
+
+.project-financials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #f9fafb;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  margin-top: 1rem;
+  max-width: 400px;
+}
+
+.project-financials span {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.project-financials .collected strong {
+  color: #10b981; /* зелена */
+}
+
+.project-financials .remaining strong {
+  color: #f97316; /* портокалова */
+}
+
+.project-financials .goal strong {
+  color: #3b82f6; /* сина */
+}
+
+@media (min-width: 600px) {
+  .project-financials {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .project-financials span {
+    flex: 1;
+    padding: 0 0.5rem;
+  }
+}
+
+
+
+  .down-buttons {
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-details-right h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-description,
+  .descriptionfortheproject {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .donateBtn{
+    max-width: 136px;
+  }
+  .info-btn,
+  .back-btn,
+  .share-btn {
+    font-size: 1rem;
+    padding: 0.6rem 0.3rem;
+    max-width: fit-content;
+  }
+
+  .project-card {
+    flex: 0 0 50%;
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.25rem;
+  }
+
+  .related-projects h3 {
+    font-size: 1.5rem;
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
+
+  .modal-content.share-modal {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-details-left img {
+    max-height: 300px;
+  }
+
+  .project-details-right h2 {
+    font-size: 1.25rem;
+  }
+
+  .donate-btn,
+  .info-btn,
+  .back-btn,
+  .share-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .top-buttons,
+  .down-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .modal-content {
+    width: 85%;
+  }
+}

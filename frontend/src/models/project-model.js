@@ -1,12 +1,12 @@
 export default class Project {
-  constructor (id, title, description, image, transaction, donation, date, typeId) {
+  constructor (id, title, description, image, bankAccount, goal, endDate, typeId) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.image = image;
-    this.transaction = transaction;
-    this.donation = donation;
-    this.date = date;
+    this.bankAccount = bankAccount;
+    this.goal = goal;
+    this.endDate = endDate;
     this.typeId = typeId;
   }
 };
