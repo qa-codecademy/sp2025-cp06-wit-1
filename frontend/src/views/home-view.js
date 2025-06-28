@@ -15,7 +15,7 @@ import { initProjectCard } from "../components/projects/project-card.js";
 
 const HomeView = async () => {
   const lang = languageService.getLanguage();
-
+  const t = languageService.getAllTranslations().home;
   // Fetch data
   const [projects, itemsSuccess, itemsPeople] = await Promise.all([
     getProjects(lang),
@@ -29,7 +29,7 @@ const HomeView = async () => {
       ${HeroBanner()}
         ${OurMission()}
 
-        ${renderUrgentProjects("Биди хуман помогни!", projects)}
+        ${renderUrgentProjects(t.behumane, projects)}
    
         ${renderResultsSection()}
 
