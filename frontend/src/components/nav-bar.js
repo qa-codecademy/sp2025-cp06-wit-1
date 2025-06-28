@@ -1,6 +1,27 @@
 import languageService from "../services/language-service.js"
 
 const NavBar = () => {
+    function handleLogoClickBehavior() {
+  const logoTop = document.querySelector(".logo");
+
+  const isHomepage = window.location.hash === "#/" || window.location.hash === "";
+
+  // Remove any previous click listeners to avoid duplicates
+  const newLogo = logoTop.cloneNode(true);
+  logoTop.parentNode.replaceChild(newLogo, logoTop);
+
+  if (isHomepage) {
+    newLogo.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+}
+    
+document.addEventListener("DOMContentLoaded", function () {
+  handleLogoClickBehavior();
+  window.addEventListener("hashchange", handleLogoClickBehavior);
+});
     const navbar = languageService.getAllTranslations().navbar;
     return `
         <div class="logo">
@@ -14,19 +35,9 @@ const NavBar = () => {
 
         <ul class="nav-links">
             <li><a href="#" data-link>${navbar.home}</a></li>
-            <li class="dropdown">
-                <a href="#" data-link>${navbar.programs}</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#education" data-link>${navbar.education}</a></li>
-                    <li><a href="#activism" data-link>${navbar.activism}</a></li>
-                    <li><a href="#legal-support" data-link>${navbar.legal}</a></li>
-                    <li><a href="#humanitarian" data-link>${navbar.humanitarian}</a></li>
-                </ul>
-            </li>
-                
+            <li><a href="#/news" data-link>${navbar.news}</a></li>
             <li><a href="#/projects" data-link>${navbar.projects}</a></li>
-            <li><a href="#/gallery" data-link>${navbar.gallery}</a></li>
-            <li><a href="#/contact" data-link>${navbar.contact}</a></li>
+            <li><a href="#/about" data-link>${navbar.about}</a></li>
            <!-- Language Dropdown -->
         <li class="dropdown lang-dropdown">
         <a href="#" class="lang-toggle" data-link>🌐 ${navbar.language ? navbar.language : ""}</a>

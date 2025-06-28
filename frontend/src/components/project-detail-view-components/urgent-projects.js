@@ -5,7 +5,7 @@ export function renderUrgentProjects(title, filteredProjects, ) {
 const t = languageService.getAllTranslations().projects;
   return `
     <div class="related-projects">
-      <h3>${t.endingSoonAndNeedHelp || title}</h3>
+      <h2>${t.endingSoonAndNeedHelp || title}</h2>
 
       <div class="carousel-container">
         <button class="carousel-btn left" id="carouselLeft">←</button>

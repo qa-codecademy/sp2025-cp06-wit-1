@@ -58,6 +58,7 @@ function renderGallery() {
         document.body.style.overflow = '';
     }
 
+    
     closeBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         closePopup();
@@ -82,6 +83,7 @@ function renderGallery() {
         if (currentIndex > totalImages) currentIndex = 1;
         showPopup(currentIndex);
     });
+    
 }
 
 export { Gallery, renderGallery };

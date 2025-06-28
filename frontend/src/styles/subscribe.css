@@ -47,7 +47,7 @@
   
   .subscription-form button {
     padding: 12px 20px;
-    background-color: #3498db;
+    background-color: #43a3ac;
     color: white;
     font-size: 16px;
     border: none;
@@ -57,7 +57,7 @@
   }
   
   .subscription-form button:hover {
-    background-color: #2980b9;
+    background-color: #0c8e9a;
   }
   
   /* ✅ Responsive fix */

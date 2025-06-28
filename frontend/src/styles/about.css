@@ -64,7 +64,7 @@
 
 .vision-text h2 {
   margin-bottom: 1rem;
-  color: #1a73e8;
+  color: #44a3ac;
   font-weight: 700;
   font-size: 2rem;
 }
@@ -88,6 +88,7 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   max-width: 100%;
+  max-height: 60vh;
   /* margin-bottom: 4rem; */
   color: #000;
 }
@@ -104,7 +105,7 @@
 
 .contactWaysContainer h1 {
   text-align: center;
-  color: #1a73e8;
+  color: #44a3ac;
   margin-bottom: 1rem;
 }
 
@@ -116,7 +117,7 @@
 }
 
 .contactWaysContainer a:hover {
-  color: #1a73e8;
+  color: #29848c;
 }
 
 .contactWaysContainer i {

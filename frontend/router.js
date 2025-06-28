@@ -5,10 +5,12 @@ import spinner from "./src/utils/spinner.js";
 import ProjectsView from "./src/views/projects-view.js";
 import HelpView from "./src/views/help-view.js";
 import ProjectDetailsView from "./src/views/project-details-view.js";
+import NewsView from "./src/views/news.js"
 
 // Define routes with optional dynamic segments
 const routes = {
     "/": HomeView,
+    "/news": NewsView,
     "/projects": ProjectsView,
     "/project/:id": ProjectDetailsView,
     "/about": AboutView,

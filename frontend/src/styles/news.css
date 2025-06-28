@@ -1,0 +1,56 @@
+.news-section {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.news-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  text-align: center;
+}
+
+.news-list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.news-item {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.news-item h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.news-item p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  white-space: pre-line; /* важен за summary со \n */
+}
+
+.news-item .read-more {
+  margin-top: auto;
+  align-self: flex-start;
+  margin-top: 1rem;
+  color: #2ab5df;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.news-item .read-more:hover {
+  text-decoration: underline;
+}

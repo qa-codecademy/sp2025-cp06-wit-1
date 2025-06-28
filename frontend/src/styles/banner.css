@@ -31,7 +31,7 @@
 .cta-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #3b82f6;
+  background-color: #43a3ac;
   color: #fff;
   border: none;
   font-weight: 500;
@@ -42,7 +42,7 @@
 }
 
 .cta-button:hover {
-  background-color: #134697;
+  background-color: #166b72;
 }
 
 .hero-graphic img {

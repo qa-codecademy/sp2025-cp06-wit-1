@@ -1,7 +1,7 @@
 .projectForm {
     display: flex;
     flex-direction: column;
-    max-width: 60%;
+    max-width: 40%;
     margin: 30px auto;
     padding: 30px;
     border: 1px solid #ccc;
@@ -56,19 +56,19 @@
 }
 
 .cancelBtn {
-    background-color: #FF0000;
+    background-color: #cd2d2d;
 }
 
 .cancelBtn:hover {
-    background-color: #FF0000;
+    background-color: #850202;
 }
 
 .createBtn {
-    background-color: #9CBF3A;
+    background-color: #43A3AC;
 }
 
 .createBtn:hover {
-    background-color: #85a730;
+    background-color: #10717a;
 }
 
 .editBtn {
