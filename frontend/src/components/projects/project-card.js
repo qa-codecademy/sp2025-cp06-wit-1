@@ -2,7 +2,9 @@ import CircularProgress from "../../utils/circular-progress.js";
 import ProjectCardModel from "../../models/project-card-model.js"
 import languageService from "../../services/language-service.js";
 
+
 const ProjectCard = (projectData, index, isAdmin = true, t) => {
+  const projectdetails = languageService.getAllTranslations().projectdetails;
   const project = new ProjectCardModel(projectData);
   const typeIcons = {
     1: "bi-people",         // Заедница / Komunitet
@@ -47,7 +49,7 @@ const ProjectCard = (projectData, index, isAdmin = true, t) => {
           </div>
         </div>
         <div class="btn-container">
-        <button id="donateBtn" class="donate-btn">💚 Донирај</button>
+        <button id="donateBtn" class="donate-btn">💚 ${projectdetails.donate}</button>
         <button class="learn-more-btn" data-id="${project.id}">ℹ️ ${t.learnMore}</button>
         </div>
         ${isAdmin ? `

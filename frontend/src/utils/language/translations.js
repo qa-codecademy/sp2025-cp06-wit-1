@@ -21,6 +21,7 @@ const translations = {
       email: "troublegostivar@gmail.com"
     },
     home: {
+      behumane: "Биди хуман, помогни!",
       mission: {
         title: "Нашата мисија",
         text: "Преку активизам, едукација, правна поддршка и хуманитарни активности, работиме на подобрување на условите за живот, помош и поддршка на ранливите категории, како и зајакнување на заедницата за иницирање позитивни општествени промени."
@@ -186,6 +187,7 @@ const translations = {
       getHelp: "Kërko ndihmë"
     },
     home: {
+      behumane: "Jini njerëzorë, ndihmoni!",
       mission: {
         title: "Misioni ynë",
         text: "Përmes aktivizmit, edukatës, mbështetjes ligjore dhe aktiviteteve humanitare, punojmë për përmirësimin e kushteve të jetesës, ndihmën dhe mbështetjen e grupeve të cenueshme, si dhe forcimin e komunitetit për të iniciuar ndryshime pozitive në shoqëri."
