@@ -16,7 +16,7 @@
 
 .results h2 {
     font-size: 2.5rem;
-    color: var(--text-dark);
+    color: #43a3ac;
     margin-bottom: 3rem;
     font-weight: 700;
 }
@@ -52,7 +52,7 @@
     font-size: 2.5rem;
     height: 48px;
     overflow: hidden;
-    color: var(--primary);
+    color: #43a3ac;
     margin-bottom: 0.5rem;
     font-weight: 800;
 }

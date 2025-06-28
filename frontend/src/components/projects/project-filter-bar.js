@@ -22,6 +22,7 @@ const ProjectFilterBar = (types, lang) => {
       </div>
 
       <button id="clear-filters-btn" type="button">${t.clearFilters}</button>
+     <button id="addProjectBtn" class="add-project-btn">+ ${t.addProject}</button>
     </div>
   `;
 };

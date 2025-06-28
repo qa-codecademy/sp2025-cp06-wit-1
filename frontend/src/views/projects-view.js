@@ -20,14 +20,13 @@ const ProjectsView = async () => {
   const html = `
     <section class="projects-view-container ${isAdmin ? "admin-view" : "user-view"}">
       ${ProjectFilterBar(types, lang)}
-
+  
       <div class="project-list" id="projectsContainer">
         ${ProjectList(visibleProjects, isAdmin)}
       </div>
 
       <div class="projects-actions">
         <button id="loadMoreBtn">${t.filter.loadMoreButton}</button>
-        ${isAdmin ? `<button id="addProjectBtn" class="add-project-btn">+ ${t.addProject}</button>` : ""}
       </div>
     </section>
   `;

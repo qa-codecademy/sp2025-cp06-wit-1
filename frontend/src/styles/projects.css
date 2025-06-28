@@ -61,7 +61,7 @@
 }
 
 .sort-btn {
-  background-color: #007bff;
+  background-color: #0a8996;
   border: none;
   color: white;
   padding: 8px 14px;
@@ -73,7 +73,7 @@
 }
 
 .sort-btn:hover {
-  background-color: #0056b3;
+  background-color: #065962;
 }
 
 .sort-btn:focus {
@@ -223,8 +223,7 @@
 .learn-more-btn {
   background: linear-gradient(
     135deg,
-    #2563eb,
-    #60a5fa
+    #2e7c85, #3a9aa3
   ); /* темно до светло сино */
   color: white;
   font-size: 1.05rem;
@@ -238,7 +237,7 @@
 }
 
 .learn-more-btn:hover:not(:disabled) {
-  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  background: linear-gradient(135deg, #10919f, #0e7780);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
 }
@@ -334,10 +333,8 @@
 
 /* Add Project Button */
 .add-project-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
   background-color: #28a745;
+  margin-left: auto;
   border: none;
   color: white;
   font-size: 1.1rem;

@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #2ab5df;
-  --primary-dark: #19d26c;
+  --primary-color: #44a3ac;
+  --primary-dark: #2da063;
   --bg-card: #grey;
   --bg-page: #e3f2fd;
   --text-color: #212121;
@@ -115,7 +115,7 @@ justify-content: center;}
 }
 
 .donate-btn {
-  background: linear-gradient(135deg, #3c7876, #3992aa); /* темно до светло зелено */
+  background: linear-gradient(135deg, #4bb684, #1ba273); /* темно до светло зелено */
   color: white;
   font-size: 1.1rem;
   font-weight: bold;
@@ -129,7 +129,7 @@ justify-content: center;}
 }
 
 .donate-btn:hover {
-  background: linear-gradient(135deg, #15803d, #22c55e);
+  background: linear-gradient(135deg, #389c57, #33969f);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 128, 0, 0.4);
 }
@@ -140,7 +140,7 @@ justify-content: center;}
 }
 
 .info-btn {
-  background: linear-gradient(135deg, #2563eb, #60a5fa); /* темно до светло сино */
+  background: linear-gradient(135deg, #136973, #3a9aa3); /* темно до светло сино */
   color: white;
   font-size: 1.05rem;
   font-weight: 500;
@@ -153,7 +153,7 @@ justify-content: center;}
 }
 
 .info-btn:hover {
-  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  background: linear-gradient(135deg, #44929a, #17747d) !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
 }
@@ -162,6 +162,7 @@ justify-content: center;}
   transform: scale(0.98);
   box-shadow: 0 3px 8px rgba(30, 64, 175, 0.2);
 }
+
 
 .info-btn,
 .donate-btn {
@@ -223,20 +224,21 @@ justify-content: center;}
 
 /* Related Projects */
 .related-projects {
+  margin-top: 1rem;
   padding: 2rem var(--gap);
-  background-color: #f9f9f9; /* светла позадина за визуелно одвојување */
+  /* background-color: #f9f9f9; светла позадина за визуелно одвојување */
   border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
   max-height: fit-content;
 }
 
-.related-projects h3 {
-  font-size: 2rem;
+.related-projects h2 {
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  color: var(--primary-color);
+  color: #43a3ac;
   text-align: center;
   font-weight: 600;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid #43a3ac;
   /* display: inline-block; */
   padding-bottom: 0.5rem;
 }
@@ -589,7 +591,7 @@ progress::-moz-progress-bar {
     font-size: 1.25rem;
   }
 
-  .related-projects h3 {
+  .related-projects h2 {
     font-size: 1.5rem;
   }
 
