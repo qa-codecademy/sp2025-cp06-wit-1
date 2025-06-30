@@ -1,7 +1,7 @@
 :root {
   --primary-color: #44a3ac;
   --primary-dark: #2da063;
-  --bg-card: #grey;
+  --bg-card: #f8f9fa;
   --bg-page: #e3f2fd;
   --text-color: #212121;
   --border-radius: 12px;
@@ -9,41 +9,20 @@
   --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Basic */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-.modal-overlay {
-  position: relative;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+.hidden {
+  display: none !important;
 }
 
 /* Project Details */
 .project-details {
   display: flex;
   flex-direction: row;
-  position: c;
   gap: var(--gap);
   background-color: var(--bg-card);
   border-radius: var(--border-radius);
@@ -52,37 +31,25 @@ a {
   margin-top: var(--gap);
   padding: var(--gap);
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
-
-.progress-bar-info {
-width: 90%;
-justify-content: center;}
 
 .project-details-left {
   flex: 0 0 50%;
   max-width: 100%;
 }
 
-.project-details-right {
-  flex: 1;
-  max-width: 50%;
-}
-
 .project-details-left img {
   width: 100%;
   border-radius: 15px;
-  max-width: 900px; /* или колку ти одговара */
+  max-width: 900px;
   height: 600px;
+  object-fit: cover;
 }
 
-.top-buttons {
-  top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 1rem;
+.project-details-right {
+  flex: 1;
+  max-width: 50%;
 }
 
 .project-details-right h2 {
@@ -96,36 +63,119 @@ justify-content: center;}
   opacity: 0.9;
 }
 
+/* Progress Bar & Financials */
+.progress-bar-info {
+  margin: 2rem 0;
+  background: #f1f5f9;
+  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.project-financials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  font-size: 1rem;
+  gap: 1rem;
+}
+
+.project-financials span {
+  flex: 1 1 30%;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  background: #f9fafb;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.project-financials .collected strong {
+  color: #16a34a;
+}
+
+.project-financials .remaining strong {
+  color: #f97316;
+}
+
+.project-financials .goal strong {
+  color: #2563eb;
+}
+
 .project-details-right progress {
   width: 100%;
-  height: 12px;
+  height: 20px;
+  -webkit-appearance: none;
   appearance: none;
-  background-color: #ddd;
-  border-radius: 6px;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.project-details-right progress::-webkit-progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 10px;
 }
 
 .project-details-right progress::-webkit-progress-value {
-  background-color: var(--primary-color);
-  border-radius: 6px;
+  background: linear-gradient(90deg, var(--primary-color), #3de197);
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+.project-details-right progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--primary-color), #3de197);
+  border-radius: 10px;
+}
+
+/* Buttons */
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+
+.type-icon {
+  position: absolute;
+  padding: 2px 12px;
+  top: 178px;
+  right: 20px;
+  border: 1px solid;
+  border-radius: 50%;
 }
 
 .down-buttons {
   margin-left: 110px;
-  margin-top: 200px;
 }
 
-.donate-btn {
-  background: linear-gradient(135deg, #4bb684, #1ba273); /* темно до светло зелено */
-  color: white;
-  font-size: 1.1rem;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
+.donate-btn,
+.info-btn,
+.back-btn,
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+/* Donate */
+.donate-btn {
+  background: linear-gradient(135deg, #4bb684, #1ba273);
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
-  /* margin: 2rem; */
 }
 
 .donate-btn:hover {
@@ -139,23 +189,18 @@ justify-content: center;}
   box-shadow: 0 3px 8px rgba(0, 128, 0, 0.2);
 }
 
+/* Info */
 .info-btn {
-  background: linear-gradient(135deg, #136973, #3a9aa3); /* темно до светло сино */
+  background: linear-gradient(135deg, #136973, #3a9aa3);
   color: white;
   font-size: 1.05rem;
-  font-weight: 500;
   padding: 0.7rem 1.4rem;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
 }
 
 .info-btn:hover {
   background: linear-gradient(135deg, #44929a, #17747d) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
 }
 
 .info-btn:active {
@@ -163,27 +208,12 @@ justify-content: center;}
   box-shadow: 0 3px 8px rgba(30, 64, 175, 0.2);
 }
 
-
-.info-btn,
-.donate-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
+/* Back */
 .back-btn {
-  background: linear-gradient(135deg, #6b7280, #9ca3af); /* сиво-неутрална градација */
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
   color: white;
   font-size: 1rem;
-  font-weight: 500;
   padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
   box-shadow: 0 4px 10px rgba(107, 114, 128, 0.2);
 }
 
@@ -196,19 +226,12 @@ justify-content: center;}
   transform: scale(0.98);
 }
 
+/* Share */
 .share-btn {
-  background: linear-gradient(135deg, #10b981, #34d399); /* зелена тема */
+  background: linear-gradient(135deg, #10b981, #34d399);
   color: white;
   font-size: 1rem;
-  font-weight: 500;
   padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
   box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
 }
 
@@ -221,14 +244,11 @@ justify-content: center;}
   transform: scale(0.98);
 }
 
-
 /* Related Projects */
 .related-projects {
   margin-top: 1rem;
   padding: 2rem var(--gap);
-  /* background-color: #f9f9f9; светла позадина за визуелно одвојување */
   border-radius: 1rem;
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
   max-height: fit-content;
 }
 
@@ -239,12 +259,10 @@ justify-content: center;}
   text-align: center;
   font-weight: 600;
   border-bottom: 2px solid #43a3ac;
-  /* display: inline-block; */
   padding-bottom: 0.5rem;
 }
 
-
-/* Project Description */
+/* Description */
 .descriptionfortheproject {
   text-align: center;
   margin: var(--gap);
@@ -252,10 +270,10 @@ justify-content: center;}
   opacity: 0.9;
 }
 
-/* Модал позадина */
+/* Donation Modal (existing styles kept) */
 .modal-overlay {
   position: fixed;
-  top: 100px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -266,7 +284,6 @@ justify-content: center;}
   z-index: 9999;
 }
 
-/* Содржина на модал */
 .modal-content {
   background: #fff;
   padding: 2rem;
@@ -274,11 +291,10 @@ justify-content: center;}
   width: 90%;
   max-width: 400px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  position: relative;
   animation: fadeIn 0.3s ease;
+  position: relative;
 }
 
-/* Затворање */
 .modal-close {
   position: absolute;
   top: 0.5rem;
@@ -290,7 +306,7 @@ justify-content: center;}
   color: #888;
 }
 
-/* Форма */
+/* Form */
 .donation-form {
   display: flex;
   flex-direction: column;
@@ -319,27 +335,32 @@ justify-content: center;}
   background-color: #218838;
 }
 
-.hidden {
-  display: none !important;
+/* Share Modal */
+.modal-content.share-modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
 }
 
-/* Анимација */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.share-options a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background: #eee;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #333;
 }
 
-/* Скрие го модалот кога е hidden */
-.hidden {
-  display: none !important;
+.share-options a:hover {
+  background: #ccc;
 }
 
+/* Carousel */
 .carousel-container {
   height: 100%;
   position: relative;
@@ -354,11 +375,10 @@ justify-content: center;}
 }
 
 .carousel-track {
-  height: 100%;
+  height: 700px;
   display: flex;
   gap: 16px;
   transition: transform 0.3s ease-in-out;
-  height: 700px;
 }
 
 .related-projects .project-card {
@@ -393,7 +413,7 @@ justify-content: center;}
 }
 
 .carousel-btn.left {
-  left: 1.8px; /* повлечено кон внатре */
+  left: 1.8px;
 }
 
 .carousel-btn.right {
@@ -406,49 +426,7 @@ justify-content: center;}
   box-shadow: none;
 }
 
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  max-width: 400px;
-  width: 90%;
-}
-
-.modal-content.share-modal {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-}
-
-.share-options a {
-  display: block;
-  margin: 10px 0;
-  padding: 10px;
-  background: #eee;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  color: #333;
-}
-
-.share-options a:hover {
-  background: #ccc;
-}
-
+/* Responsive */
 @media (max-width: 1024px) {
   .project-details {
     flex-direction: column;
@@ -466,90 +444,6 @@ justify-content: center;}
     max-height: 400px;
     object-fit: cover;
   }
-
-  .progress-bar-info {
-  
-  width: 120ox;
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
-  background: #f1f5f9; /* светло сива позадина */
-  border-radius: 12px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-progress {
-  width: 100%;
-  height: 20px;
-  appearance: none;
-  -webkit-appearance: none;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #e0e0e0;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-progress::-webkit-progress-bar {
-  background-color: #e0e0e0;
-  border-radius: 10px;
-}
-
-progress::-webkit-progress-value {
-  background: linear-gradient(90deg, var(--primary-color), #3de197);
-  border-radius: 10px;
-  transition: width 0.6s ease;
-}
-
-progress::-moz-progress-bar {
-  background: linear-gradient(90deg, var(--primary-color), #3de197);
-  border-radius: 10px;
-}
-
-.project-financials {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  background: #f9fafb;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  font-size: 1rem;
-  margin-top: 1rem;
-  max-width: 400px;
-}
-
-.project-financials span {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 500;
-}
-
-.project-financials .collected strong {
-  color: #10b981; /* зелена */
-}
-
-.project-financials .remaining strong {
-  color: #f97316; /* портокалова */
-}
-
-.project-financials .goal strong {
-  color: #3b82f6; /* сина */
-}
-
-@media (min-width: 600px) {
-  .project-financials {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-  }
-
-  .project-financials span {
-    flex: 1;
-    padding: 0 0.5rem;
-  }
-}
-
-
 
   .down-buttons {
     margin: 2rem auto;
@@ -570,19 +464,16 @@ progress::-moz-progress-bar {
     padding: 0 1rem;
   }
 
-  .donateBtn{
+  .donateBtn {
     max-width: 136px;
   }
+
   .info-btn,
   .back-btn,
   .share-btn {
     font-size: 1rem;
     padding: 0.6rem 0.3rem;
     max-width: fit-content;
-  }
-
-  .project-card {
-    flex: 0 0 50%;
   }
 
   .carousel-btn {
@@ -595,10 +486,7 @@ progress::-moz-progress-bar {
     font-size: 1.5rem;
   }
 
-  .modal-content {
-    padding: 1rem;
-  }
-
+  .modal-content,
   .modal-content.share-modal {
     padding: 1rem;
   }

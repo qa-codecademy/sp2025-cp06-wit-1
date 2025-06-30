@@ -1,5 +1,5 @@
 import languageService from "../../services/language-service.js";
-import Modal from "../../utils/modal.js";
+import Modal from "../../utils/shared-modals/modal.js";
 
 const Subscribe = () => {
   const subscribe = languageService.getAllTranslations().home.subscribe;
@@ -31,8 +31,8 @@ const initSubscribeForm = () => {
     console.log(email)
     Modal({
       type: "success",
-      title: subscribe.modalTitle,
-      message: `${subscribe.modalMessage}: ${email}`,
+      title: subscribe.modalMessage,
+      message: email,
       buttons: [
         {
           text: "OK",

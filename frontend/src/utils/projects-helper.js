@@ -2,16 +2,15 @@ import { initProjectCard } from "../components/projects/project-card.js";
 import ProjectList from "../components/projects/project-list.js";
 import { initProjectFilterBar } from "./initProjectFilterBar.js";
 import { getProjects, deleteProjectById } from "../services/projects-service.js";
-import Modal from "./modal.js";
+import Modal from "./shared-modals/modal.js";
 import languageService from "../services/language-service.js";
 
 let cachedAllProjects = [];
 let cachedSetVisibleCount = () => { };
 let cachedOnFilter = () => { };
 let cachedRenderProjects = () => { };
+
 const lang = localStorage.getItem("language") || "mk";
-const t = languageService.getAllTranslations().projects;
-const tEditCreate = languageService.getAllTranslations().editCreate;
 
 export function setupProjectHandlers({
   allProjects,
@@ -19,10 +18,7 @@ export function setupProjectHandlers({
   setVisibleCount,
   onFilter,
   onLoadMore,
-
 }) {
-
-
   cachedAllProjects = allProjects;
   cachedSetVisibleCount = setVisibleCount;
   cachedOnFilter = onFilter;
@@ -48,10 +44,12 @@ export function setupProjectHandlers({
   const addProjectBtn = document.getElementById("addProjectBtn");
   addProjectBtn?.addEventListener("click", () => {
     window.location.hash = "#/add-project";
+    window.scrollTo(0, 0);
   });
 }
 
 async function deleteAndRefreshProject(projectId) {
+  const tEditCreate = languageService.getAllTranslations().editCreate;
 
   try {
     await deleteProjectById(projectId);
@@ -61,6 +59,13 @@ async function deleteAndRefreshProject(projectId) {
     cachedAllProjects.length = 0;
     cachedAllProjects.push(...updated);
     cachedRenderProjects();
+
+    Modal({
+      type: "success",
+      title: tEditCreate.successDelete,
+      message: tEditCreate.successDeleteMessage,
+      buttons: [{ text: "OK", class: "cancel-btn" }],
+    });
   } catch (error) {
     Modal({
       type: "error",
@@ -72,6 +77,9 @@ async function deleteAndRefreshProject(projectId) {
 }
 
 function handleDelete(id) {
+  const t = languageService.getAllTranslations().projects;
+  const tEditCreate = languageService.getAllTranslations().editCreate;
+
   Modal({
     type: "warning",
     title: t.confirmDelete,
@@ -79,7 +87,7 @@ function handleDelete(id) {
     buttons: [
       { text: tEditCreate.cancel, class: "cancel-btn", onClick: () => { } },
       {
-        text: "Избриши",
+        text: t.delete,
         class: "confirm-btn",
         onClick: () => deleteAndRefreshProject(id),
       },

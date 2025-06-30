@@ -99,6 +99,35 @@ const ProjectDetailsView = async ({ id }) => {
 
       
       setupShareModal();
+
+ const animateProgressBar = () => {
+  const progress = document.querySelector("progress");
+  if (progress) {
+    const max = parseInt(progress.max);
+    const target = parseInt(progress.getAttribute("data-collected") || progress.value);
+
+    // Reset progress value
+    progress.value = 0;
+
+    // Force browser repaint before animation starts
+    requestAnimationFrame(() => {
+      let current = 0;
+      const step = () => {
+        if (current < target) {
+          current += Math.max(1, Math.ceil((target - current) / 8));
+          progress.value = Math.min(current, target);
+          requestAnimationFrame(step);
+        } else {
+          progress.value = target;
+        }
+      };
+      step();
+    });
+  }
+};
+
+
+  animateProgressBar();
     }
   };
 

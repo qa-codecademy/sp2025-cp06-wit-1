@@ -77,6 +77,7 @@ function initProjectCard({ onDelete }) {
         const projectId = editBtn.getAttribute("data-id");
         if (projectId) {
           window.location.hash = `#/edit-project/${projectId}`;
+          window.scrollTo(0,0);
         }
         return;
       }
@@ -93,6 +94,7 @@ function initProjectCard({ onDelete }) {
         const projectId = learnMoreBtn.getAttribute("data-id");
         if (projectId) {
           window.location.hash = `#/project/${projectId}`;
+          window.scrollTo(0,0);
         }
       }
     });
