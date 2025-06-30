@@ -1,5 +1,5 @@
 import languageService from "../services/language-service.js";
-import Modal from "../utils/modal.js";
+import Modal from "../utils/shared-modals/modal.js";
 import { validateFormInputs } from "../utils/validation-helper.js";
 
 const HelpView = () => {

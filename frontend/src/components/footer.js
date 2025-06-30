@@ -27,6 +27,7 @@ function handleLogoClickBehavior() {
   const logoTop = document.getElementById("logoTop");
 
   const isHomepage = window.location.hash === "#/" || window.location.hash === "";
+   window.scrollTo(0,0);
 
   // Remove any previous click listeners to avoid duplicates
   const newLogo = logoTop.cloneNode(true);

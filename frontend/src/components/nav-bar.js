@@ -2,26 +2,27 @@ import languageService from "../services/language-service.js"
 
 const NavBar = () => {
     function handleLogoClickBehavior() {
-  const logoTop = document.querySelector(".logo");
+        const logoTop = document.querySelector(".logo");
 
-  const isHomepage = window.location.hash === "#/" || window.location.hash === "";
+        const isHomepage = window.location.hash === "#/" || window.location.hash === "";
+        window.scrollTo(0,0);
 
-  // Remove any previous click listeners to avoid duplicates
-  const newLogo = logoTop.cloneNode(true);
-  logoTop.parentNode.replaceChild(newLogo, logoTop);
+        // Remove any previous click listeners to avoid duplicates
+        const newLogo = logoTop.cloneNode(true);
+        logoTop.parentNode.replaceChild(newLogo, logoTop);
 
-  if (isHomepage) {
-    newLogo.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+        if (isHomepage) {
+            newLogo.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        handleLogoClickBehavior();
+        window.addEventListener("hashchange", handleLogoClickBehavior);
     });
-  }
-}
-    
-document.addEventListener("DOMContentLoaded", function () {
-  handleLogoClickBehavior();
-  window.addEventListener("hashchange", handleLogoClickBehavior);
-});
     const navbar = languageService.getAllTranslations().navbar;
     return `
         <div class="logo">

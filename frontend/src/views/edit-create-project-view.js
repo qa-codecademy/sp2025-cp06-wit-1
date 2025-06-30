@@ -3,7 +3,7 @@ import { getProjectTypes } from "../services/project-service.js";
 import languageService from "../services/language-service.js";
 import projectService from "../services/project-service.js";
 import { validateFormInputs } from "../utils/validation-helper.js";
-import Modal from "../utils/modal.js";
+import Modal from "../utils/shared-modals/modal.js";
 
 
 let project;
@@ -216,14 +216,15 @@ function bindFormEvents(params) {
 
                 Modal({
                     type: "success",
-                    title: editCreate.title,
-                    message: `${editCreate.updateAlert}!`,
+                    title: `${editCreate.updateAlert}!`,
+                    message:"",
                     buttons: [
                         {
                             text: "OK",
                             class: "confirm-btn",
                             onClick: () => {
                                 window.location.hash = "#/projects";
+                                window.scrollTo(0,0);
                             },
                         },
                     ],
@@ -233,14 +234,15 @@ function bindFormEvents(params) {
 
                 Modal({
                     type: "success",
-                    title: editCreate.title,
-                    message: `${editCreate.updateAlert}!`,
+                    title: `${editCreate.updateAlert}!`,
+                    message:"",
                     buttons: [
                         {
                             text: "OK",
                             class: "confirm-btn",
                             onClick: () => {
                                 window.location.hash = "#/projects";
+                                window.scrollTo(0,0);
                             },
                         },
                     ],

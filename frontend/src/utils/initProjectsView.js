@@ -84,6 +84,7 @@ function initProjectsView(allProjects, isAdmin, t, filterTypes) {
     if (addProjectBtn) {
         addProjectBtn.addEventListener("click", () => {
             window.location.hash = "#/add-project";
+            window.scrollTo(0,0);
         });
     }
     projectsContainer.addEventListener("click", (e) => {
@@ -92,6 +93,7 @@ function initProjectsView(allProjects, isAdmin, t, filterTypes) {
             const projectId = editBtn.getAttribute("data-id");
             if (projectId) {
                 window.location.hash = `#/edit-project/${projectId}`;
+                window.scrollTo(0,0);
             }
         }
         const deleteBtn = e.target.closest(".delete-btn");
@@ -107,6 +109,7 @@ function initProjectsView(allProjects, isAdmin, t, filterTypes) {
             const projectId = learnMoreBtn.getAttribute("data-id");
             if (projectId) {
                 window.location.hash = `#/project/${projectId}`;
+                window.scrollTo(0,0);
             }
         }
     });
