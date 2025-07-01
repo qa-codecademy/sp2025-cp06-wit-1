@@ -14,7 +14,7 @@ const ProjectDetailsView = async ({ id }) => {
   const t = languageService.getAllTranslations().projectdetails;
 
   let allProjects = await getProjects(lang);
-  allProjects = allProjects.filter(p => p.isActive === true);
+  // allProjects = allProjects.filter(p => p.isActive);
   const projectData = allProjects.find(p => String(p.id) === String(id));
 
   if (!projectData) {

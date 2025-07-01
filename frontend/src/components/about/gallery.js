@@ -31,49 +31,70 @@ function renderGallery() {
         img.src = `src/assets/gallery-images/img${i}.jpg`;
         img.alt = `Image ${i}`;
         img.className = "gallery-image";
+        img.dataset.index = i - 1;
 
-        // Store image index using a closure
-        img.addEventListener("click", (() => {
-            const index = i;
-            return () => {
-                currentIndex = index;
-                showPopup(currentIndex);
-            };
-        })());
+        img.addEventListener("click", (e) => {
+            currentIndex = parseInt(e.target.dataset.index);
+            showPopup(currentIndex);
+        });
 
         container.appendChild(img);
     }
 
     function showPopup(index) {
-        selectedImg.src = `src/assets/gallery-images/img${index}.jpg`;
-        selectedImg.alt = `Image ${index}`;
+        selectedImg.src = `src/assets/gallery-images/img${index + 1}.jpg`;
+        selectedImg.alt = `Image ${index + 1}`;
         popup.style.transform = "translateY(0)";
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
 
-        //hiding the navbar and footer a
         document.querySelector(".navbar").style.zIndex = "-1";
-
         document.querySelectorAll("footer a").forEach(el => {
             el.style.position = "relative";
             el.style.zIndex = "-1";
         });
+        document.querySelector(".vision-text").style.zIndex = "-10";
 
+        document.addEventListener("keydown", handleKeyDown);
     }
 
     function closePopup() {
         popup.style.transform = "translateY(-100%)";
         selectedImg.src = "";
         selectedImg.alt = "";
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
 
-        //returning as it was
         document.querySelector(".navbar").style.zIndex = "";
         document.querySelectorAll("footer a").forEach(el => {
             el.style.zIndex = "";
         });
+        document.querySelector(".vision-text").style.zIndex = "";
 
+        document.removeEventListener("keydown", handleKeyDown);
     }
 
+    function handleKeyDown(e) {
+        switch (e.key) {
+            case "Escape":
+                closePopup();
+                break;
+            case "ArrowLeft":
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                showPopup(currentIndex);
+                break;
+            case "ArrowRight":
+                currentIndex = (currentIndex + 1) % totalImages;
+                showPopup(currentIndex);
+                break;
+            case "Home":
+                currentIndex = 0;
+                showPopup(currentIndex);
+                break;
+            case "End":
+                currentIndex = totalImages - 1;
+                showPopup(currentIndex);
+                break;
+        }
+    }
 
     closeBtn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -88,18 +109,55 @@ function renderGallery() {
 
     prevBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        currentIndex = currentIndex - 1;
-        if (currentIndex < 1) currentIndex = totalImages;
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         showPopup(currentIndex);
     });
 
     nextBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        currentIndex = currentIndex + 1;
-        if (currentIndex > totalImages) currentIndex = 1;
+        currentIndex = (currentIndex + 1) % totalImages;
         showPopup(currentIndex);
     });
 
+    // --- Touch Swipe Support (Portrait & Landscape) ---
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    selectedImg.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, false);
+
+    selectedImg.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipeGesture();
+    }, false);
+
+    function handleSwipeGesture() {
+        const threshold = 50;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            // Horizontal swipe
+            if (Math.abs(deltaX) > threshold) {
+                if (deltaX < 0) {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                } else {
+                    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                }
+                showPopup(currentIndex);
+            }
+        } else {
+            // Vertical swipe → close popup
+            if (Math.abs(deltaY) > threshold) {
+                closePopup();
+            }
+        }
+    }
 }
 
 export { Gallery, renderGallery };
