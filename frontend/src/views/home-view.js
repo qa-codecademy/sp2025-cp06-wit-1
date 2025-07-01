@@ -22,6 +22,8 @@ const HomeView = async () => {
     fetchCarouselItems(lang),
     fetchPeople(lang)
   ]);
+let filterdProjects = projects.filter(p => p.isActive === true)
+.slice(0,8);
 
   // Store HTML structure
   const html = `
@@ -29,7 +31,7 @@ const HomeView = async () => {
       ${HeroBanner()}
         ${OurMission()}
 
-        ${renderUrgentProjects(t.behumane, projects)}
+        ${renderUrgentProjects(t.behumane, filterdProjects)}
    
         ${renderResultsSection()}
 

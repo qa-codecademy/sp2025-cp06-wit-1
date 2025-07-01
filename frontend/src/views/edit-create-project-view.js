@@ -147,14 +147,14 @@ function bindFormEvents(params) {
                 //custum validation for date
                 if (id === "dateInput" && ( new Date(value) < new Date().getTime())) {
                     input.classList.add("input-error");
-                    error.textContent = `Внесете валиден датум!`;
+                    error.textContent = editCreate.dateError;
                     return;
                 }
 
                 //custom validation for money
                  if (id === "donationInput" && (value <= 0 )) {
                     input.classList.add("input-error");
-                    error.textContent = `Внесете валидна сума!`;
+                    error.textContent = editCreate.donationError;
                     return;
                 }
 

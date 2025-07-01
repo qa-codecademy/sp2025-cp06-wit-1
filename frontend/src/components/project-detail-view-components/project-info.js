@@ -1,6 +1,6 @@
 // project-info.js
 import { renderDonationForm } from './donation-form.js';
-import { renderShareModal } from './shareModal.js';
+import { renderShareModal } from '../../utils/shared-modals/shareModal.js';
 
 export function renderProjectInfo(project, t, type) {
   const typeIcons = {
@@ -14,7 +14,7 @@ export function renderProjectInfo(project, t, type) {
   return `
     <div class="top-buttons">
       <button onclick="window.history.back()" class="back-btn">← ${t.back}</button>
-      <button class="btn share-btn">🔗 Сподели</button>
+      <button class="btn share-btn">🔗 ${t.share}</button>
           ${renderShareModal()}
     </div>
     <div class="project-details">
@@ -36,9 +36,9 @@ export function renderProjectInfo(project, t, type) {
         <div class="progress-bar-info">
           <div class="progress-info-bar">
             <div class="project-financials">
-            <span class="collected"><strong>${t.collected}:</strong> ${project.collected} ден.</span>
-            <span class="remaining"><strong>${t.remaining}:</strong> ${project.getRemainingAmount()} ден.</span>
-            <span class="goal"><strong>${t.goal}:</strong> ${project.goal} ден.</span>
+            <span class="collected"><strong>${t.collected}:</strong> ${project.collected} ${t.currency}</span>
+            <span class="remaining"><strong>${t.remaining}:</strong> ${project.getRemainingAmount()} ${t.currency}</span>
+            <span class="goal"><strong>${t.goal}:</strong> ${project.goal} ${t.currency}</span>
         </div>
 
           </div>
@@ -48,7 +48,7 @@ export function renderProjectInfo(project, t, type) {
 
         <div class="down-buttons">
           <button id="donateBtn" class="donate-btn">💚 ${t.donate}</button>
-          <button class="btn info-btn">ℹ️ Повеќе Инфо</button>
+          <button class="btn info-btn">ℹ️ ${t.info}</button>
         </div>
 
         <div id="donationFormContainer" class="hidden">

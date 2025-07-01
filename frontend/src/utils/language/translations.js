@@ -60,6 +60,9 @@ const translations = {
             types: "Одбери категорија",
             transactionError: "Ве молиме ставете ја вашата трансакциона сметка",
             requiredFieldError: "Полето е задолжително",
+            donationError:"Внесете валидна сума!",
+            dateError:"Внесете валиден датум!",
+
             transactionErrorLength: "Трансакцискиот број мора да содржи точно 15 цифри",
             transactionErrorInvalidChars: "Внесете само нумерички вредности",
             createAlert: "Проектот е успешно креиран",
@@ -92,7 +95,8 @@ const translations = {
                 deleteTitle: "Избриши проект",
                 projectImageAlt: "Слика од проектот",
                 collected: "собрано",
-                left: "преостанато"
+                left: "преостанато",
+                currency: "ден."
             },
             delete: "Избриши",
             confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
@@ -141,17 +145,20 @@ const translations = {
         projectdetails: {
             goal: "Цел",
             collected: "Собрани средства",
+            currency: "ден.",
             remaining: "Преостануваат",
             datePosted: "Објавено",
             endDate: "Завршува",
             type: "Тип",
             back: "Назад",
+            share: "Сподели",
             notFound: "Не е пронајден",
             uknownProject: "Непознат Проект",
             active: "🟢 Активен",
             inactive: "🔴 Неактивен",
             state: "Статус:",
             donate: "Донирај",
+            info: "Повеќе инфо",
             enterDonationDetails: "Внеси податоци за донација",
             cardHolder: "Носител на картичка:",
             cardHolderName: "Име и Презиме",
@@ -159,12 +166,29 @@ const translations = {
             amount: "Износ за донација (МКД)",
             confirmDonation: "Потврди ја донацијата"
         },
+        donationModal: {
+            enterDonationDetails: "Внеси детали за донација",
+            cardHolder: "Име на сопственик на картичката",
+            cardHolderName: "Име и презиме",
+            cardNumber: "Број на картичка",
+            amount: "Износ",
+            confirmDonation: "Потврди донација",
+            cancel: "Откажи",
+            successTitle: "Успешна донација",
+            successMessage: (amount) => `✅ Донацијата од ${amount} денари е успешно примена. Ви благодариме!`,
+            closeButton: "Затвори",
+            successTitle: "Успешна донација",
+            successMessageWithProject: (amount, project) => `Дониравте <strong>${amount} ден</strong> за <strong>${project}</strong>. Ви благодариме!`,
+            fieldRequired: "Ова поле е задолжително.",
+            invalidCard: "Невалиден број на картичка.",
+            invalidAmount: "Внесете валиден износ.",
+        },
         newsfeed: {
             newsfeedtitle: "Новости",
             backToNews: "Назад кон сите новости",
             newsNotFound: "Новоста не е пронајдена.",
-            image: ""
-
+            image: "",
+            readMore: "Прочитај повеќе"
         },
 
     },
@@ -230,6 +254,8 @@ const translations = {
             types: "Zgjidhni një kategori",
             transactionError: "Ju lutemi shkruani numrin e llogarisë suaj të transaksionit",
             requiredFieldError: "Ju lutemi plotësoni fushën e kërkuar",
+            donationError:"Vendosni një shumë të vlefshme!",
+            dateError:"Vendosni një datë të vlefshme!",
 
             troubleAlert: "Се случи неочекуван проблем",
 
@@ -264,7 +290,8 @@ const translations = {
                 deleteTitle: "Fshi projektin",
                 projectImageAlt: "Foto e projektit",
                 collected: "mbledhur",
-                left: "mbetur"
+                left: "mbetur",
+                currency: "den."
             },
             delete: "Fshij",
             confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?",
@@ -317,17 +344,20 @@ const translations = {
         projectdetails: {
             goal: "Qëllimi",
             collected: "Shuma e mbledhur",
+            currency: "den.",
             remaining: "Të mbetura",
             datePosted: "Publikuar më",
             endDate: "Përfundon më",
             type: "Lloji",
             back: "Kthehu",
+            share: "Pjesë",
             notFound: "Nuk u gjet",
             uknownProject: "Projekt i panjohur",
             active: "🟢 Aktiv",
             inactive: "🔴 Joaktiv",
             state: "Statusi:",
             donate: "Dhuro",
+            info: "Më shumë informacion",
             enterDonationDetails: "Shkruani të dhënat për donacion",
             cardHolder: "Mbajtësi i kartelës:",
             cardHolderName: "Emri dhe Mbiemri",
@@ -335,13 +365,31 @@ const translations = {
             amount: "Shuma për donacion (MKD)",
             confirmDonation: "Konfirmo donacionin"
         },
+        donationModal: {
+            enterDonationDetails: "Fut detajet e donacionit",
+            cardHolder: "Emri i pronarit të kartës",
+            cardHolderName: "Emri dhe mbiemri",
+            cardNumber: "Numri i kartës",
+            amount: "Shuma",
+            confirmDonation: "Konfirmo donacionin",
+            cancel: "Anulo",
+            successTitle: "Donacion i suksesshëm",
+            successMessage: (amount) => `✅ Donacioni prej ${amount} denarë u pranua me sukses. Faleminderit!`,
+            closeButton: "Mbyll",
+            successTitle: "Donacion i suksesshëm",
+            successMessageWithProject: (amount, project) => `Dhuruat <strong>${amount} denarë</strong> për <strong>${project}</strong>. Faleminderit!`,
+            closeButton: "Mbyll",
+            fieldRequired: "Kjo fushë është e detyrueshme.",
+            invalidCard: "Numër i pavlefshëm karte.",
+            invalidAmount: "Ju lutem futni një shumë valide.",
+        },
         newsfeed: {
             newsfeedtitle: "Lajme",
             backToNews: "Kthehu te të gjitha lajmet",
-            newsNotFound: "Lajmet nuk u gjetën."
+            newsNotFound: "Lajmet nuk u gjetën.",
+            image: "",
+            readMore: "Lexo më shumë"
         }
-
-
 
     }
 };

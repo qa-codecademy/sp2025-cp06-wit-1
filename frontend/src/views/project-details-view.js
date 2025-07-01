@@ -3,16 +3,18 @@ import ProjectCardModel from "../models/project-card-model.js";
 import languageService from "../services/language-service.js";
 import { getProjectTypes } from "../services/project-service.js";
 import { renderProjectDetails } from "../components/project-detail-view-components/project-details-html.js  ";
-import { setupShareModal } from '../components/project-detail-view-components/shareModal.js';
+import { setupShareModal } from '../utils/shared-modals/shareModal.js';
 import { initUrgentProjects } from "../components/project-detail-view-components/urgent-projects.js";
 import { initProjectCard } from "../components/projects/project-card.js";
-
+import Modal from "../utils/shared-modals/modal.js";
+import { showDonationModal } from "../utils/shared-modals/donation-modal.js";
 
 const ProjectDetailsView = async ({ id }) => {
   const lang = languageService.getLanguage();
   const t = languageService.getAllTranslations().projectdetails;
 
-  const allProjects = await getProjects(lang);
+  let allProjects = await getProjects(lang);
+  allProjects = allProjects.filter(p => p.isActive === true);
   const projectData = allProjects.find(p => String(p.id) === String(id));
 
   if (!projectData) {
@@ -49,7 +51,7 @@ const ProjectDetailsView = async ({ id }) => {
     html,
     setup: () => {
       initUrgentProjects();
-      initProjectCard(()=>{});
+      initProjectCard(() => { });
       const donateBtn = document.getElementById("donateBtn");
       const modal = document.getElementById("donationFormContainer");
       const submitBtn = document.getElementById("submitDonation");
@@ -73,17 +75,24 @@ const ProjectDetailsView = async ({ id }) => {
 
 
       donateBtn?.addEventListener("click", () => {
-        modal?.classList.remove("hidden");
+        const translations = languageService.getAllTranslations().donationModal;
+
+        showDonationModal(translations, (data, cleanup) => {
+          const amount = data.amount;
+          Modal({
+            type: "success",
+            title: translations.successTitle,
+            message: translations.successMessage(amount),
+            buttons: [
+              {
+                text: translations.closeButton,
+                onClick: cleanup
+              }
+            ]
+          });
+        });
       });
 
-      closeModal?.addEventListener("click", () => {
-        modal?.classList.add("hidden");
-      });
-
-      submitBtn?.addEventListener("click", () => {
-        alert("✅ Донацијата е успешно симулирана. Ви благодариме!");
-        modal?.classList.add("hidden");
-      });
 
       // Затворање со клик надвор
       overlay?.addEventListener("click", (e) => {
@@ -97,37 +106,37 @@ const ProjectDetailsView = async ({ id }) => {
         descriptionSection?.scrollIntoView({ behavior: "smooth" });
       });
 
-      
+
       setupShareModal();
 
- const animateProgressBar = () => {
-  const progress = document.querySelector("progress");
-  if (progress) {
-    const max = parseInt(progress.max);
-    const target = parseInt(progress.getAttribute("data-collected") || progress.value);
+      const animateProgressBar = () => {
+        const progress = document.querySelector("progress");
+        if (progress) {
+          const max = parseInt(progress.max);
+          const target = parseInt(progress.getAttribute("data-collected") || progress.value);
 
-    // Reset progress value
-    progress.value = 0;
+          // Reset progress value
+          progress.value = 0;
 
-    // Force browser repaint before animation starts
-    requestAnimationFrame(() => {
-      let current = 0;
-      const step = () => {
-        if (current < target) {
-          current += Math.max(1, Math.ceil((target - current) / 8));
-          progress.value = Math.min(current, target);
-          requestAnimationFrame(step);
-        } else {
-          progress.value = target;
+          // Force browser repaint before animation starts
+          requestAnimationFrame(() => {
+            let current = 0;
+            const step = () => {
+              if (current < target) {
+                current += Math.max(1, Math.ceil((target - current) / 8));
+                progress.value = Math.min(current, target);
+                requestAnimationFrame(step);
+              } else {
+                progress.value = target;
+              }
+            };
+            step();
+          });
         }
       };
-      step();
-    });
-  }
-};
 
 
-  animateProgressBar();
+      animateProgressBar();
     }
   };
 

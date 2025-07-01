@@ -6,11 +6,13 @@ import ProjectsView from "./src/views/projects-view.js";
 import HelpView from "./src/views/help-view.js";
 import ProjectDetailsView from "./src/views/project-details-view.js";
 import NewsView from "./src/views/news.js"
+import NewsDetailView from "./src/views/news-detail.js";
 
 // Define routes with optional dynamic segments
 const routes = {
     "/": HomeView,
     "/news": NewsView,
+    "/news/:id": NewsDetailView,
     "/projects": ProjectsView,
     "/project/:id": ProjectDetailsView,
     "/about": AboutView,

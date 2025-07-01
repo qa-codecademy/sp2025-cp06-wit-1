@@ -1,6 +1,8 @@
 import CircularProgress from "../../utils/circular-progress.js";
 import ProjectCardModel from "../../models/project-card-model.js"
 import languageService from "../../services/language-service.js";
+import { showDonationModal } from "../../utils/shared-modals/donation-modal.js";
+import Modal from "../../utils/shared-modals/modal.js";
 
 
 const ProjectCard = (projectData, index, isAdmin = true, t) => {
@@ -44,8 +46,8 @@ const ProjectCard = (projectData, index, isAdmin = true, t) => {
           ${CircularProgress(project.getProgressPercentage(), `card-${index}`)}
 
           <div class="progress-bar-wrapper">
-            <div class="collected-amount">${t.collected}: ${project.collected} ден</div>
-            <div class="remaining-amount">${project.getRemainingAmount() > 0 ? `${t.left}:${project.getRemainingAmount()} ден` : ""}</div>
+            <div class="collected-amount">${t.collected}: ${project.collected} ${t.currency}</div>
+            <div class="remaining-amount">${project.getRemainingAmount() > 0 ? `${t.left}:${project.getRemainingAmount()} ${t.currency}` : ""}</div>
           </div>
         </div>
         <div class="btn-container">
@@ -72,12 +74,12 @@ function initProjectCard({ onDelete }) {
       const editBtn = e.target.closest(".edit-btn");
       const deleteBtn = e.target.closest(".delete-btn");
       const learnMoreBtn = e.target.closest(".learn-more-btn");
-      
+
       if (editBtn) {
         const projectId = editBtn.getAttribute("data-id");
         if (projectId) {
           window.location.hash = `#/edit-project/${projectId}`;
-          window.scrollTo(0,0);
+          window.scrollTo(0, 0);
         }
         return;
       }
@@ -94,8 +96,36 @@ function initProjectCard({ onDelete }) {
         const projectId = learnMoreBtn.getAttribute("data-id");
         if (projectId) {
           window.location.hash = `#/project/${projectId}`;
-          window.scrollTo(0,0);
+          window.scrollTo(0, 0);
         }
+      }
+
+      if (donateBtn) {
+        const card = donateBtn.closest(".project-card");
+        const projectTitle = card.querySelector(".project-title")?.textContent;
+
+        const translations = languageService.getAllTranslations().donationModal;
+
+        showDonationModal(translations, (data, cleanup) => {
+          // ОВДЕ НЕ alert, туку користи твојот Modal или покажи нов модал со успех
+          Modal({
+            type: "success",
+            title: translations.successTitle,
+            message: translations.successMessageWithProject
+              ? translations.successMessageWithProject(data.amount, projectTitle)
+              : `Дониравте <strong>${data.amount} ден</strong> за <strong>${projectTitle}</strong>. Ви благодариме!`,
+
+            buttons: [
+              {
+                text: translations.closeButton || "Затвори", 
+                class: "confirm-btn",
+                onClick: cleanup,
+              }
+            ]
+          });
+        });
+
+        return;
       }
     });
   });

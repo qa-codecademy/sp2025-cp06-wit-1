@@ -28,6 +28,7 @@ const app = async() => {
         
         // Handle language dropdown toggle button
         if (target.matches(".lang-toggle")) {
+            event.preventDefault();
             const langDropdown = target.closest(".lang-dropdown");
             if (langDropdown) {
                 langDropdown.classList.toggle("open");

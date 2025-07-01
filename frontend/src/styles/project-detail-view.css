@@ -244,6 +244,23 @@ a {
   transform: scale(0.98);
 }
 
+#closeShareModal,
+#cancelDonation {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+#closeShareModal:hover,
+#cancelDonation:hover {
+  background-color: #a71d2a;
+}
+
 /* Related Projects */
 .related-projects {
   margin-top: 1rem;
@@ -293,6 +310,8 @@ a {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
   animation: fadeIn 0.3s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-close {
