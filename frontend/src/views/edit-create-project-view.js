@@ -8,7 +8,7 @@ import Modal from "../utils/shared-modals/modal.js";
 
 let project;
 const EditCreateProjectView = async (params) => {
-    
+
     const lang = languageService.getLanguage();
     const editCreate = languageService.getAllTranslations().editCreate;
     if (params && params.id) {
@@ -23,13 +23,13 @@ const EditCreateProjectView = async (params) => {
             (t) =>
                 `<option value="${t.id}" ${t.id === project?.typeId ? "selected" : ""
                 }>${t.value}</option>`
+
         )
         .join("");
 
     // Inject select placeholder only if creating a new project
-    const selectPlaceholder = !params?.id
-        ? `<option disabled selected>${editCreate.types}</option>`
-        : "";
+    const selectPlaceholder = `<option value=""  selected>${editCreate.types || "Селектирај категорија"}</option>`
+        ;
 
     setTimeout(() => bindFormEvents(params), 0);
 
@@ -115,7 +115,7 @@ function bindFormEvents(params) {
     const isValidTransaction = (value) => /^\d{15}$/.test(value);
 
     let base64Image = project?.image ?? "";
- 
+
     // Real-time input cleanup
     requiredFields.forEach(id => {
         const input = document.getElementById(id);
@@ -124,9 +124,8 @@ function bindFormEvents(params) {
         if (input && error) {
             input.addEventListener("input", () => {
                 const value = input.value.trim();
-
                 // Empty input check
-                if (!value || (id === "categoryInput" && input.selectedIndex === 0)) {
+                if (!value || (id === "categoryInput" && (value === "" || value === "0"))) {
                     input.classList.add("input-error");
                     error.textContent = `${editCreate.requiredFieldError}!`;
                     return;
@@ -144,6 +143,19 @@ function bindFormEvents(params) {
                         error.textContent = `${editCreate.transactionErrorLength}!`;
                         return;
                     }
+                }
+                //custum validation for date
+                if (id === "dateInput" && ( new Date(value) < new Date().getTime())) {
+                    input.classList.add("input-error");
+                    error.textContent = `Внесете валиден датум!`;
+                    return;
+                }
+
+                //custom validation for money
+                 if (id === "donationInput" && (value <= 0 )) {
+                    input.classList.add("input-error");
+                    error.textContent = `Внесете валидна сума!`;
+                    return;
                 }
 
                 // If valid, clear error
@@ -217,32 +229,32 @@ function bindFormEvents(params) {
                 Modal({
                     type: "success",
                     title: `${editCreate.updateAlert}!`,
-                    message:"",
+                    message: "",
                     buttons: [
                         {
                             text: "OK",
                             class: "confirm-btn",
                             onClick: () => {
                                 window.location.hash = "#/projects";
-                                window.scrollTo(0,0);
+                                window.scrollTo(0, 0);
                             },
                         },
                     ],
                 });
             } else {
-                 await projectService.create(localizedPayload);
+                await projectService.create(localizedPayload);
 
                 Modal({
                     type: "success",
                     title: `${editCreate.updateAlert}!`,
-                    message:"",
+                    message: "",
                     buttons: [
                         {
                             text: "OK",
                             class: "confirm-btn",
                             onClick: () => {
                                 window.location.hash = "#/projects";
-                                window.scrollTo(0,0);
+                                window.scrollTo(0, 0);
                             },
                         },
                     ],

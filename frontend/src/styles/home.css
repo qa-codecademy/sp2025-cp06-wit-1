@@ -2,7 +2,6 @@
 .mission-section {
   padding: 3rem 1rem;
   background: transparent;
-  max-width: 90%;
   overflow-x: hidden;
 }
 
@@ -102,4 +101,7 @@
 }
 .home-view.container .related-projects {
   width: 90vw;
+}
+.home-view.container .mission-section {
+  max-width: 90%;
 }

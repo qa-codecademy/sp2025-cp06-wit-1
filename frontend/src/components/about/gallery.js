@@ -49,6 +49,15 @@ function renderGallery() {
         selectedImg.alt = `Image ${index}`;
         popup.style.transform = "translateY(0)";
         document.body.style.overflow = 'hidden';
+
+        //hiding the navbar and footer a
+        document.querySelector(".navbar").style.zIndex = "-1";
+
+        document.querySelectorAll("footer a").forEach(el => {
+            el.style.position = "relative";
+            el.style.zIndex = "-1";
+        });
+
     }
 
     function closePopup() {
@@ -56,9 +65,16 @@ function renderGallery() {
         selectedImg.src = "";
         selectedImg.alt = "";
         document.body.style.overflow = '';
+
+        //returning as it was
+        document.querySelector(".navbar").style.zIndex = "";
+        document.querySelectorAll("footer a").forEach(el => {
+            el.style.zIndex = "";
+        });
+
     }
 
-    
+
     closeBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         closePopup();
@@ -83,7 +99,7 @@ function renderGallery() {
         if (currentIndex > totalImages) currentIndex = 1;
         showPopup(currentIndex);
     });
-    
+
 }
 
 export { Gallery, renderGallery };
