@@ -102,7 +102,7 @@ const translations = {
             confirmDelete: "Дали сте сигурни дека сакате да го избришете овој проект?"
         },
         about: {
-            title: "За нас",
+            title: "За Нас",
             vision: {
                 title: "Нашата визија",
                 text: "Да создадеме праведно и хумано општество во кое секој граѓанин има еднакви можности, пристап до поддршка и подобри услови за живот, со посебен фокус на заштита на човековите права, социјална правда и солидарност."
@@ -297,7 +297,7 @@ const translations = {
             confirmDelete: "A jeni të sigurt që doni ta fshini këtë projekt?",
         },
         about: {
-            title: "Për ne",
+            title: "Rreth Nesh",
             vision: {
                 title: "Vizioni ynë",
                 text: "Të krijojmë një shoqëri e drejtë dhe humane në të cilën çdo qytetar ka mundësi të barabarta, akses në mbështetje dhe kushte më të mira jetese, me fokus të veçantë në mbrojtjen e të drejtave të njeriut, drejtësinë sociale dhe solidaritetin."
