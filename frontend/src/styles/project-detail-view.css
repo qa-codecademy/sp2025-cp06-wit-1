@@ -161,6 +161,7 @@ a {
 .share-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   font-weight: 500;
   border: none;
@@ -388,16 +389,17 @@ a {
 }
 
 .carousel-viewport {
-  height: 100%;
-  overflow: hidden;
+ overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
 .carousel-track {
-  height: 700px;
   display: flex;
-  gap: 16px;
-  transition: transform 0.3s ease-in-out;
+  gap: 16px; /* adjust based on design */
+  width: fit-content;
+  transition: transform 0.3s ease;
+
 }
 
 .related-projects .project-card {
@@ -492,7 +494,6 @@ a {
   .share-btn {
     font-size: 1rem;
     padding: 0.6rem 0.3rem;
-    max-width: fit-content;
   }
 
   .carousel-btn {

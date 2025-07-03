@@ -187,6 +187,7 @@
 
 .project-card-content {
   padding: 15px;
+  
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -200,6 +201,9 @@
 }
 
 .project-description {
+   max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 0.95rem;
   color: #555;
 }
@@ -251,7 +255,7 @@
   display: flex;
   justify-content: space-around;
   gap: 10px;
-  margin-top: 16px;
+  margin-top: auto;
 }
 
 .project-type.floating {

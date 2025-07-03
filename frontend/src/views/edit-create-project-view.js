@@ -246,7 +246,7 @@ function bindFormEvents(params) {
 
                 Modal({
                     type: "success",
-                    title: `${editCreate.updateAlert}!`,
+                    title: `${editCreate.createAlert}!`,
                     message: "",
                     buttons: [
                         {

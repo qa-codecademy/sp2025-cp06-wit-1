@@ -29,13 +29,18 @@ const ProjectDetailsView = async ({ id }) => {
   const type = types.find(t => t.id == project.typeId) || { value: t.unknownProject };
   const allProjectModels = allProjects.map(p => new ProjectCardModel(p));
 
-  let filteredProjects = allProjectModels
-    .filter(p => {
-      const daysLeft = p.getDaysLeft?.() ?? 999;
-      const remaining = p.getRemainingAmount?.() ?? 0;
-      return daysLeft <= 5 && remaining >= (p.goal * 0.5);
-    })
-    .sort((a, b) => a.getDaysLeft() - b.getDaysLeft());
+let filteredProjects = allProjectModels
+  .filter(p => {
+    const daysLeft = typeof p.getDaysLeft === 'function' ? p.getDaysLeft() : 999;
+    const remaining = typeof p.getRemainingAmount === 'function' ? p.getRemainingAmount() : 0;
+    return daysLeft <= 5 || remaining >= (p.goal * 0.5);
+  })
+  .sort((a, b) => {
+    const daysA = typeof a.getDaysLeft === 'function' ? a.getDaysLeft() : 999;
+    const daysB = typeof b.getDaysLeft === 'function' ? b.getDaysLeft() : 999;
+    return daysA - daysB;
+  });
+
 
   let fallbackMessage = "";
   if (filteredProjects.length === 0) {

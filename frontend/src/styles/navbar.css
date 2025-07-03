@@ -203,3 +203,12 @@ ul {
         transform: none;
     }
 }
+
+.nav-links li a.active {
+  color: #00c7a2; /* same as hover color */
+}
+
+.nav-links li a.active::after {
+  width: 100%;
+  background: #00c7a2;
+}

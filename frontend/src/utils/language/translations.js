@@ -188,7 +188,8 @@ const translations = {
             backToNews: "Назад кон сите новости",
             newsNotFound: "Новоста не е пронајдена.",
             image: "",
-            readMore: "Прочитај повеќе"
+            readMore: "Прочитај повеќе",
+            relatedNews: "Поврзани новости"
         },
 
     },
@@ -257,7 +258,7 @@ const translations = {
             donationError:"Vendosni një shumë të vlefshme!",
             dateError:"Vendosni një datë të vlefshme!",
 
-            troubleAlert: "Се случи неочекуван проблем",
+            troubleAlert: "Ndodhi një problem i papritur.",
 
             updateAlert: "Projekti është përditësuar",
             createAlert: "Projekti është krijuar",
@@ -388,7 +389,8 @@ const translations = {
             backToNews: "Kthehu te të gjitha lajmet",
             newsNotFound: "Lajmet nuk u gjetën.",
             image: "",
-            readMore: "Lexo më shumë"
+            readMore: "Lexo më shumë",
+            relatedNews: "Lajme të ngjashme"
         }
 
     }

@@ -3,7 +3,8 @@ export function NewsComponent(t, newsData) {
   if (!Array.isArray(newsData) || newsData.length === 0) {
     return `
       <section class="news-section">
-        <h2>${t.newsfeedtitle}</h2>
+       <div class="aboutTitle"> <h1>${t.newsfeedtitle}</h1></div>
+        
         <p style="text-align:center; color: #888;">${t.newsNotFound}</p>
       </section>
     `;
@@ -29,7 +30,8 @@ export function NewsComponent(t, newsData) {
 
   return `
     <section class="news-section">
-      <h2>${t.newsfeedtitle}</h2>
+     <div class="aboutTitle"> <h1>${t.newsfeedtitle}</h1></div>
+        
       <div class="news-list">
         ${newsItemsHTML}
       </div>

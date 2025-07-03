@@ -23,7 +23,7 @@ const HelpView = () => {
             <input type="text" id="offerNameInput" placeholder="${t.form.name}" />
             <span id="offerNameError" class="error"></span>
 
-            <input type="text" id="offerPhoneInput" placeholder="${t.form.phone}" />
+            <input type="tel" id="offerPhoneInput" placeholder="${t.form.phone}" />
             <span id="offerPhoneError" class="error"></span>
 
             <input type="email" id="offerEmailInput" placeholder="${t.form.email}" />
@@ -44,7 +44,7 @@ const HelpView = () => {
             <input type="text" id="getNameInput" placeholder="${t.form.name}" />
             <span id="getNameError" class="error"></span>
 
-            <input type="text" id="getPhoneInput" placeholder="${t.form.phone}" />
+            <input type="tel" id="getPhoneInput" placeholder="${t.form.phone}" />
             <span id="getPhoneError" class="error"></span>
 
             <input type="email" id="getEmailInput" placeholder="${t.form.email}" />
@@ -97,7 +97,6 @@ const HelpView = () => {
       updateMobileFormView();
     });
 
-    // === Mobile toggle logic scoped to this view ===
     const mobileOfferHelpBtn = document.querySelector(".help-view #mobileOfferHelpBtn");
     const mobileGetHelpBtn = document.querySelector(".help-view #mobileGetHelpBtn");
 
@@ -141,9 +140,83 @@ const HelpView = () => {
     window.addEventListener("resize", updateMobileFormView);
     updateMobileFormView();
 
+    // === Phone number formatting ===
+    const formatPhoneInput = (input) => {
+      const prefix = "+389 ";
+
+      // Ensure input always starts with prefix
+      if (!input.value.startsWith(prefix)) {
+        input.value = prefix;
+      }
+
+      input.addEventListener("focus", () => {
+        if (!input.value.startsWith(prefix)) {
+          input.value = prefix;
+        }
+      });
+
+      input.addEventListener("blur", () => {
+        if (input.value.trim() === "" || input.value === prefix) {
+          input.value = prefix;
+        }
+      });
+
+      input.addEventListener("beforeinput", (e) => {
+        if (input.selectionStart <= prefix.length && e.inputType.startsWith("delete")) {
+          e.preventDefault();
+        }
+      });
+
+      input.addEventListener("keydown", (e) => {
+        if (
+          (e.key === "Backspace" || e.key === "Delete") &&
+          input.selectionStart <= prefix.length
+        ) {
+          e.preventDefault();
+        }
+      });
+
+      input.addEventListener("click", () => {
+        if (input.selectionStart < prefix.length) {
+          input.setSelectionRange(prefix.length, prefix.length);
+        }
+      });
+
+      input.addEventListener("input", () => {
+        let digits = input.value.replace(/\D/g, "").replace(/^389/, "");
+        digits = digits.slice(0, 8); // Max 8 digits after 7X
+
+        let formatted = prefix;
+
+        if (digits.length >= 2) {
+          formatted += digits.slice(0, 2);
+        } else {
+          formatted += digits;
+        }
+
+        if (digits.length >= 5) {
+          formatted += " " + digits.slice(2, 5);
+        } else if (digits.length > 2) {
+          formatted += " " + digits.slice(2);
+        }
+
+        if (digits.length > 5) {
+          formatted += " " + digits.slice(5);
+        }
+
+        input.value = formatted;
+      });
+    };
+
+
+    const offerPhoneInput = document.getElementById("offerPhoneInput");
+    const getPhoneInput = document.getElementById("getPhoneInput");
+
+    if (offerPhoneInput) formatPhoneInput(offerPhoneInput);
+    if (getPhoneInput) formatPhoneInput(getPhoneInput);
+
     // === Form logic ===
     const tForm = t.form;
-
     const offerForm = document.getElementById("offerForm");
     const getForm = document.getElementById("getForm");
 
@@ -158,7 +231,7 @@ const HelpView = () => {
         ],
         customValidators: {
           offerEmailInput: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
-          offerPhoneInput: (val) => /^\d{6,}$/.test(val),
+          offerPhoneInput: (val) => /^\+389 7\d \d{3} \d{3}$/.test(val),
         },
         errorMessages: {
           required: tForm.requiredError,
@@ -195,7 +268,7 @@ const HelpView = () => {
         ],
         customValidators: {
           getEmailInput: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
-          getPhoneInput: (val) => /^07\d{7}$/.test(val),
+          getPhoneInput: (val) => /^\+389 7\d \d{3} \d{3}$/.test(val),
         },
         errorMessages: {
           required: tForm.requiredError,
