@@ -1,0 +1,70 @@
+footer.footer {
+  background-color:#203546;
+  color: #fff;
+  text-align: center;
+  }
+
+  .socialIcons{
+    display: flex;
+    justify-content: center;
+  }
+
+  .socialIcons a{
+    margin: 0.5rem;
+    padding: 2px;
+    border-radius: 50%;
+  }
+
+  .socialIcons a i{
+    font-size: 1.5em;
+    opacity: 0.9;
+  }
+
+  img{
+    width: 60px;
+    height:60px;
+  }
+   .locationWrapper{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .locationWrapper i{
+    margin-top: 12px;
+    margin-right: 3px;
+  }
+
+  .mailSubSection{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .mailSubSection i{
+    margin-top: 12px;
+    margin-right: 6px;
+  }
+
+ footer a {
+  position: relative; /* Needed for the pseudo-element to position absolutely */
+  text-decoration: none;
+  color: #fff;
+}
+
+footer a::after {
+  content: '';
+  position: absolute; /* Changed from relative to absolute */
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #00c7a2;
+  transition: width 0.3s ease;
+}
+
+footer a:hover {
+  color: #00c7a2;
+}
+
+footer a:hover::after {
+  width: 100%;
+}

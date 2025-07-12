@@ -1,0 +1,119 @@
+:root {
+    --primary: #3b49df;
+    --bg-light: #f8f8f8;
+    --card-bg: #ffffff;
+    --text-dark: #1a1a1a;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.results {
+    text-align: center;
+    padding: 2rem 2rem;
+    background-color: var(--bg-light);
+    width: 90%;
+    margin: 2rem 0 2rem;
+}
+
+.results h2 {
+    font-size: 2.5rem;
+    color: #43a3ac;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+.stat {
+    background: var(--card-bg);
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px var(--shadow);
+    flex: 1 1 200px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.stat h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    height: 48px;
+    overflow: hidden;
+    color: #43a3ac;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.stat h3 .digit-container {
+    display: flex;
+    flex-direction: column;
+    height: 48px;
+    width: 24px;
+    line-height: 48px;
+    text-align: center;
+    transition: transform 1s ease-in-out;
+    transform: translateY(0);
+}
+
+.stat h3 .digit-container span {
+    height: 48px;
+}
+
+.stat h3 .symbol {
+    display: inline-block;
+    width: 24px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+}
+
+.stat p {
+    font-size: 1rem;
+    color: #444;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .results {
+        padding: 1rem 1rem;
+    }
+ 
+    .results h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+ 
+    .stats {
+        align-items: center;
+        gap: 1.5rem;
+    }
+ 
+    .stat {
+        max-width: 100%;
+        padding: 1.5rem 1rem;
+    }
+ 
+    .stat h3 {
+        font-size: 2rem;
+        height: 40px;
+    }
+ 
+    .stat p {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+}
+ 
